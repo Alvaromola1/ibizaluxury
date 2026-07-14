@@ -1,6 +1,5 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
     remotePatterns: [
       {
@@ -8,6 +7,9 @@ const nextConfig: NextConfig = {
         hostname: "images.pexels.com",
       },
     ],
+  },
+  env: {
+    DATABASE_URL: process.env.DATABASE_URL || "postgresql://temporal_para_evitar_error_en_build",
   },
 };
 
