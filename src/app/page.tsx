@@ -28,7 +28,7 @@ function HomeContent() {
         {/* HERO */}
         <section className="relative min-h-screen overflow-hidden bg-[#0c1520]">
           <img
-            src="/images/hero-dramatic.jpg"
+            src="/images/hero-dramatic.svg"
             alt="Luxury cliffside villa with infinity pool at sunset in Ibiza"
             className="media-fill"
           />
@@ -164,7 +164,7 @@ function HomeContent() {
 
             <div className="relative">
               <div className="overflow-hidden rounded-[32px] bg-[#0c1520]">
-                <img src="/images/chill-concept.jpg" alt="Relaxing at infinity pool with everything handled" className="media-card media-card-tall" />
+                <img src="/images/chill-concept.svg" alt="Relaxing at infinity pool with everything handled" className="media-card media-card-tall" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               </div>
 
@@ -175,8 +175,8 @@ function HomeContent() {
               </div>
 
               <div className="mt-6 grid grid-cols-2 gap-4">
-                <img src="/images/chef-villa.jpg" alt="Private chef at villa" className="h-40 w-full rounded-2xl object-cover" />
-                <img src="/images/champagne-yacht.jpg" alt="Champagne on yacht" className="h-40 w-full rounded-2xl object-cover" />
+                <img src="/images/chef-villa.svg" alt="Private chef at villa" className="h-40 w-full rounded-2xl object-cover" />
+                <img src="/images/champagne-yacht.svg" alt="Champagne on yacht" className="h-40 w-full rounded-2xl object-cover" />
               </div>
             </div>
           </div>
@@ -267,7 +267,7 @@ function HomeContent() {
 
         {/* WHY US */}
         <section id="experiencias" className="relative overflow-hidden bg-[#0c1520] py-20 text-[#f7f3ec] md:py-28">
-          <img src="/images/night-vip.jpg" alt="" className="media-fill opacity-30" aria-hidden />
+          <img src="/images/night-vip.svg" alt="" className="media-fill opacity-30" aria-hidden />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0c1520] via-[#0c1520]/92 to-[#0c1520]/72" />
 
           <div className="container-wide relative grid gap-12 lg:grid-cols-2 lg:items-center">
@@ -288,10 +288,10 @@ function HomeContent() {
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="overflow-hidden rounded-[28px] bg-[#132033]">
-                <img src="/images/yacht-glamour.jpg" alt="Superyacht in turquoise waters" className="media-card sm-h-22" />
+                <img src="/images/yacht-glamour.svg" alt="Superyacht in turquoise waters" className="media-card sm-h-22" />
               </div>
               <div className="overflow-hidden rounded-[28px] bg-[#132033] sm:mt-12">
-                <img src="/images/cars-fleet.jpg" alt="Supercar fleet" className="media-card sm-h-22" />
+                <img src="/images/cars-fleet.svg" alt="Supercar fleet" className="media-card sm-h-22" />
               </div>
             </div>
           </div>
@@ -404,7 +404,7 @@ function HomeContent() {
 
         {/* CTA FORM */}
         <section id="reserva" className="relative overflow-hidden bg-[#0c1520] py-20 text-[#f7f3ec] md:py-28">
-          <img src="/images/hero-villa.jpg" alt="" className="media-fill opacity-35" aria-hidden />
+          <img src="/images/hero-villa.svg" alt="" className="media-fill opacity-35" aria-hidden />
           <div className="absolute inset-0 bg-[#0c1520]/82" />
 
           <div className="container-wide relative grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:items-start">

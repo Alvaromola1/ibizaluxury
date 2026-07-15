@@ -858,14 +858,14 @@ const fr: typeof es = {
 export const translations: Record<Lang, typeof es> = { es, en, de, fr };
 
 export const galleryImages = [
-  "/images/hero-dramatic.jpg",
-  "/images/yacht-glamour.jpg",
-  "/images/cars-fleet.jpg",
-  "/images/champagne-yacht.jpg",
-  "/images/chef-villa.jpg",
-  "/images/vip-night.jpg",
-  "/images/chill-concept.jpg",
-  "/images/yacht-sea.jpg",
+  "/images/hero-dramatic.svg",
+  "/images/yacht-glamour.svg",
+  "/images/cars-fleet.svg",
+  "/images/champagne-yacht.svg",
+  "/images/chef-villa.svg",
+  "/images/vip-night.svg",
+  "/images/chill-concept.svg",
+  "/images/yacht-sea.svg",
 ];
 
 export const galleryAlts = [
