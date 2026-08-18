@@ -1,5 +1,6 @@
 "use client";
 
+import { grantGoogleConsent } from "@/components/GoogleTag";
 import { useEffect, useState } from "react";
 
 export function CookieBanner() {
@@ -7,11 +8,16 @@ export function CookieBanner() {
 
   useEffect(() => {
     const consent = localStorage.getItem("ild-cookie-consent");
-    if (!consent) setVisible(true);
+    if (!consent) {
+      setVisible(true);
+      return;
+    }
+    if (consent === "accepted") grantGoogleConsent();
   }, []);
 
   function choose(value: "accepted" | "rejected") {
     localStorage.setItem("ild-cookie-consent", value);
+    if (value === "accepted") grantGoogleConsent();
     setVisible(false);
   }
 
