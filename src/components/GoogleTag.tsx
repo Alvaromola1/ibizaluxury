@@ -1,15 +1,21 @@
+import Script from "next/script";
+
 const GOOGLE_ADS_ID = "AW-18395303339";
 
 /**
  * Google Ads global tag (gtag.js).
- * Rendered in <head> so it appears in page source — required for Google Ads verification.
+ * Uses Next.js Script component for proper loading in head.
  */
 export function GoogleTag() {
   return (
     <>
-      {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-      <script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`} />
-      <script
+      <Script
+        strategy="beforeInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
+        async
+      />
+      <Script
+        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
