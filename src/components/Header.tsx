@@ -70,7 +70,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-4 md:flex">
           <span style={{ color: inkOnLight }}>
             <LanguageSwitcher />
           </span>
@@ -78,12 +78,15 @@ export function Header() {
             href={`https://wa.me/${brand.whatsapp}`}
             target="_blank"
             rel="noreferrer"
-            className="text-[11px] uppercase tracking-[0.16em]"
+            className="text-[11px] uppercase tracking-[0.16em] hover:text-[#d4b06a] transition"
             style={{ color: inkOnLight }}
           >
             {t.nav.whatsapp}
           </a>
-          <a href="/#reserva" className="btn-primary" style={{ padding: "0.7rem 1.2rem", fontSize: "0.68rem" }}>
+          <a href="/#reserva" className="btn-primary relative" style={{ padding: "0.7rem 1.2rem", fontSize: "0.68rem" }}>
+            <span className="pulse-ring mr-1.5 text-emerald-400">
+              <span className="h-2 w-2 rounded-full bg-emerald-400" />
+            </span>
             {t.nav.reservar}
           </a>
         </div>
