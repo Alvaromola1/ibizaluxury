@@ -72,17 +72,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="es" className={`${display.variable} ${body.variable}`}>
       <head>
         <GoogleTag />
-      </head>
-      <body className={`${body.className} antialiased`} style={{ background: "#fcfaf6", color: "#0c1520" }}>
-        <Script
-          id="google-tag-manager"
-          strategy="beforeInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=AW-18395303339"
-          async
-        />
-        <Script
-          id="google-tag-init"
-          strategy="beforeInteractive"
+        {/* Google Ads Global Tag - required for Google Ads verification */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18395303339" />
+        <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -92,6 +84,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             `,
           }}
         />
+      </head>
+      <body className={`${body.className} antialiased`} style={{ background: "#fcfaf6", color: "#0c1520" }}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
