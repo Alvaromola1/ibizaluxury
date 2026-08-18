@@ -5,6 +5,7 @@ import { CookieBanner } from "@/components/CookieBanner";
 import { GoogleTag } from "@/components/GoogleTag";
 import { MetaPixel } from "@/components/MetaPixel";
 import { LiveChat } from "@/components/LiveChat";
+import Script from "next/script";
 import "./globals.css";
 
 const display = Cormorant_Garamond({
@@ -73,6 +74,24 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <GoogleTag />
       </head>
       <body className={`${body.className} antialiased`} style={{ background: "#fcfaf6", color: "#0c1520" }}>
+        <Script
+          id="google-tag-manager"
+          strategy="beforeInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18395303339"
+          async
+        />
+        <Script
+          id="google-tag-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-18395303339');
+            `,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

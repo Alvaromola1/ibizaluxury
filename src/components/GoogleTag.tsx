@@ -1,32 +1,12 @@
-import Script from "next/script";
-
 const GOOGLE_ADS_ID = "AW-18395303339";
 
 /**
- * Google Ads global tag (gtag.js).
- * Uses Next.js Script component for proper loading in head.
+ * Google Ads conversion tracker.
+ * The actual script tags are injected directly in the layout for proper head rendering.
+ * This component is kept for conversion triggering logic only.
  */
 export function GoogleTag() {
-  return (
-    <>
-      <Script
-        strategy="beforeInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
-        async
-      />
-      <Script
-        strategy="beforeInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GOOGLE_ADS_ID}');
-          `,
-        }}
-      />
-    </>
-  );
+  return null;
 }
 
 export function triggerGoogleConversion(conversionLabel: string = "") {
