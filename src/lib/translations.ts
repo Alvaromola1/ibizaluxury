@@ -19,19 +19,53 @@ const es = {
     reservar: "Reservar",
   },
   hero: {
-    badge: "300+ villas · 600+ barcos · 150+ superdeportivos · Acceso directo",
+    badge: "Private concierge · Ibiza · Acceso directo · Sin fricción",
     h1a: "Tu única misión",
     h1b: "es estar de chill.",
     sub: {
-      before: "Del resto nos encargamos nosotros. ",
-      emphasis: "Tú disfrutas",
-      after: " mientras organizamos villa, yate, coches, mesas VIP, chefs, transfers y todo lo necesario. Un solo WhatsApp, cero fricción.",
+      before: "",
+      emphasis: "Villa · Yacht · Supercar · VIP · Chef · Jet · Wellness",
+      after: "\nDiseñamos y gestionamos toda tu experiencia privada en Ibiza. Un solo WhatsApp. Cero fricción.",
     },
-    cta1: "Quiero mi propuesta",
+    cta1: "Diseñar mi Ibiza",
     cta2: "Cómo funciona",
     conceptLine: "Del resto nos encargamos nosotros.",
-    formTitle: "Respuesta inmediata",
-    formSub: "Con disponibilidad real de nuestras 300+ villas y 600+ barcos.",
+    formTitle: "Primera respuesta en minutos",
+    formSub: "Propuesta completa en 24–48h con disponibilidad real.",
+    activeAlert: "⚡ 4 solicitudes activas hoy para la temporada 2026",
+  },
+  chaos: {
+    label: "La Alternativa Común",
+    title: "El caos de los 37 WhatsApps",
+    subtitle: "Podrías intentar organizarlo tú mismo. Pero, ¿por qué ibas a arruinar tus vacaciones?",
+    leftTitle: "Organización Convencional",
+    rightTitle: "Con Nosotros",
+    leftItems: [
+      "3 horas buscando villas en Airbnb que luego ya no están disponibles",
+      "Llamar a 4 empresas de barcos diferentes para comparar tarifas y crew",
+      "Negociar coches con agencias locales que no garantizan el modelo",
+      "Intentar conseguir mesa en beach clubs a través de un 'amigo de un amigo'",
+      "Coordinar transfers, chef privado y masajista con 6 proveedores distintos"
+    ],
+    rightItems: [
+      "Un solo contacto de WhatsApp dedicado",
+      "Opciones 100% verificadas con disponibilidad confirmada en minutos",
+      "Acceso premium exclusivo a villas y yates off-market",
+      "Garantía absoluta de mesas VIP y reservas en los hotspots de la isla",
+      "Coordinación perfecta e integrada de todo tu viaje sin que muevas un dedo"
+    ],
+    conclusion: "Tú eliges: estrés organizativo o tranquilidad absoluta."
+  },
+  celebrations: {
+    label: "Momentos Especiales",
+    title: "Diseñado para Grandes Ocasiones",
+    intro: "Si viajas para celebrar un cumpleaños histórico, una despedida exclusiva o un evento privado corporativo, elevamos la experiencia a un estándar superior.",
+    items: [
+      { t: "Aniversarios & Cumpleaños", d: "Fiestas privadas en villas exclusivas, decoración de autor, DJs de renombre internacional y catering gourmet para recordar siempre." },
+      { t: "Despedidas VIP", d: "Day charters integrados con reservados en los clubs más exclusivos del mundo y flota de supercars coordinada." },
+      { t: "Retiros Corporativos & Grupos", d: "Privacidad absoluta, logística de transfers coordinada al milímetro y experiencias de team building de alto nivel." }
+    ],
+    cta: "Diseñar Evento Especial"
   },
   stats: [
     { value: "300+", label: "Villas verificadas" },
@@ -150,7 +184,7 @@ const es = {
   packages: {
     label: "Paquetes",
     title: "Elige tu nivel de experiencia",
-    intro: "Oferta clara, ancla de precio y upgrade natural hacia Ultra Private.",
+    intro: "Oferta clara, ancla de precio y upgrade natural hasta Private Client.",
     items: [
       {
         name: "Escape Essentials",
@@ -179,6 +213,15 @@ const es = {
         cta: "Hablar con concierge",
         popular: false,
       },
+      {
+        name: "Private Client",
+        price: "€50.000+",
+        period: "by private briefing only",
+        description: "Para quienes no negocian con estándares. Villa ultra-prime, superyate, jet privado y un concierge que anticipa cada necesidad antes de que la pienses.",
+        features: ["Villa ultra-prime o compound exclusivo", "Superyate + tripulación dedicada", "Jet privado & seguridad personal", "Chef de autor en villa", "Gestión completa de eventos privados", "Concierge personal 24/7 · NDA incluido"],
+        cta: "Solicitar briefing privado",
+        popular: false,
+      },
     ],
     badge: "Más solicitado",
   },
@@ -196,15 +239,15 @@ const es = {
     label: "Inspiración",
     title: "Un anticipo de lo que te espera",
     intro: "Villas, yates, supercoches y noches VIP. Solo una muestra de lo que podemos organizar para ti en Ibiza.",
-    labels: ["300+ Villas", "600+ Yates", "Flota Supercars", "Champagne @ Sea", "Private Chef", "Mesas VIP", "Concepto Chill", "Aguas Abiertas"],
+    labels: ["300+ Villas", "600+ Yachts", "Supercar fleet", "Champagne @ Sea", "Private chef", "VIP Tables", "Chill Concept", "Open Waters"],
   },
   testimonials: {
     label: "Confianza de clientes",
     title: "Historias de estancias impecables",
     items: [
-      { quote: "Llegamos un viernes y a las dos horas estábamos en un day charter a Formentera con chef a bordo. Cero fricción, puro disfrute.", name: "Sophie M.", role: "Londres · Signature Week", rating: 5 },
-      { quote: "Necesitábamos discreción total para un grupo de 12. Villa, G-Wagon, mesas VIP y seguridad sin un solo fallo.", name: "A. R.", role: "Dubái · Ultra Private", rating: 5 },
-      { quote: "Pensaba que alquilar villa + yate por mi cuenta sería más barato. Me equivoqué: el valor está en el acceso y el tiempo ahorrado.", name: "Marco & Elena", role: "Milán · Escape Essentials", rating: 5 },
+      { quote: "Llegamos un viernes y a las dos horas estábamos en un day charter a Formentera con chef a bordo. Cero fricción, puro disfrute.", name: "S. M.", role: "Londres · Signature Week · Cliente verificado", rating: 5 },
+      { quote: "Necesitábamos discreción total para un grupo de 12. Villa, G-Wagon, mesas VIP y seguridad sin un solo fallo.", name: "A. R.", role: "Dubái · Ultra Private · Cliente verificado", rating: 5 },
+      { quote: "Pensaba que alquilar villa + yate por mi cuenta sería más barato. Me equivoqué: el valor está en el acceso y el tiempo ahorrado.", name: "M. & E.", role: "Milán · Escape Essentials · Cliente verificado", rating: 5 },
     ],
   },
   cta: {
@@ -221,7 +264,7 @@ const es = {
     title: "Preguntas antes de reservar",
     intro: "Transparencia para que todo sea claro: inventario real, proceso y expectativas.",
     items: [
-      { q: "¿Cuánto cuesta un viaje con vosotros?", a: "Depende de fechas, tamaño del grupo y nivel de propiedad. Como referencia: escapes desde ~8.500€, semanas signature desde ~28.000€ y ultra private a medida. Te damos presupuesto cerrado en 24–48h." },
+      { q: "¿Cuánto cuesta un viaje con vosotros?", a: "Depende de fechas, tamaño del grupo y nivel de propiedad. Como referencia: escapes desde ~8.500€, semanas signature desde ~28.000€ y ultra private a medida. Primera respuesta en minutos durante horario de servicio; propuesta completa con precios cerrados en 24–48h." },
       { q: "¿Tenéis realmente 300+ villas y 600+ barcos?", a: "Sí. Acceso directo a inventario y red premium verificada en Ibiza y Formentera. No todo está online por privacidad, pero sí disponible bajo briefing." },
       { q: "¿Por qué no tengo un catálogo online para mirar?", a: "Porque trabajamos 100% personalizado y porque la mejor parte del inventario es off-market: sus propietarios no lo publican. En su lugar, nos dices fechas y estilo y te mandamos solo lo real y disponible. Más exclusividad, menos ruido." },
       { q: "¿Trabajáis solo en temporada alta?", a: "Operamos todo el año, con pico de mayo a octubre. Fuera de temporada hay villas y yates con tarifas más atractivas y más exclusividad." },
@@ -262,19 +305,53 @@ const en: typeof es = {
   htmlLang: "en",
   nav: { modelo: "Model", servicios: "Services", paquetes: "Packages", galeria: "Gallery", faq: "FAQ", whatsapp: "WhatsApp", reservar: "Book" },
   hero: {
-    badge: "300+ villas · 600+ boats · 150+ supercars · Direct access",
+    badge: "Private concierge · Ibiza · Direct access · Zero friction",
     h1a: "Your only mission",
     h1b: "is to just chill.",
     sub: {
-      before: "We take care of the rest. ",
-      emphasis: "You enjoy",
-      after: " while we arrange villa, yacht, cars, VIP tables, chefs, transfers and everything needed. One single WhatsApp, zero friction.",
+      before: "",
+      emphasis: "Villa · Yacht · Supercar · VIP · Chef · Jet · Wellness",
+      after: "\nWe design and manage your entire private Ibiza experience. One WhatsApp. Zero friction.",
     },
-    cta1: "Get my proposal",
+    cta1: "Design my Ibiza",
     cta2: "How it works",
     conceptLine: "We take care of the rest.",
-    formTitle: "Immediate response",
-    formSub: "With real availability from our 300+ villas and 600+ boats.",
+    formTitle: "First response in minutes",
+    formSub: "Full proposal in 24–48h with real availability.",
+    activeAlert: "⚡ 4 active requests today for the 2026 season",
+  },
+  chaos: {
+    label: "The Common Alternative",
+    title: "The chaos of 37 WhatsApps",
+    subtitle: "You could try to organize it yourself. But why would you ruin your holiday?",
+    leftTitle: "Conventional Booking",
+    rightTitle: "With Us",
+    leftItems: [
+      "Spend 3 hours browsing villas on Airbnb only to find they are already booked",
+      "Calling 4 different yacht charter companies to compare rates and crew",
+      "Negotiating supercar rentals with local agencies who don't guarantee the exact model",
+      "Trying to secure beach club VIP tables through a 'friend of a friend'",
+      "Coordinating transfers, private chef and wellness with 6 separate providers"
+    ],
+    rightItems: [
+      "A single dedicated WhatsApp concierge",
+      "100% verified options with confirmed availability within minutes",
+      "Premium off-market access to the finest villas and yachts",
+      "Absolute guarantee of VIP tables and bookings at the island's hottest spots",
+      "Seamless and integrated coordination of your entire trip without lifting a finger"
+    ],
+    conclusion: "Your choice: organizational stress or absolute tranquility."
+  },
+  celebrations: {
+    label: "Special Milestones",
+    title: "Designed for Grand Occasions",
+    intro: "Whether you're traveling for a milestone birthday, an exclusive bachelorette/bachelor party, or a private corporate retreat, we elevate the experience to an elite standard.",
+    items: [
+      { t: "Anniversaries & Birthdays", d: "Private villa parties, bespoke styling, internationally renowned DJs, and gourmet catering to create timeless memories." },
+      { t: "VIP Parties & Bachelor(ette)", d: "Bespoke day charters integrated with VIP access to the world's most exclusive clubs and coordinated supercars." },
+      { t: "Corporate Retreats & Groups", d: "Complete privacy, micro-coordinated logistics and premium wellness or team building activities." }
+    ],
+    cta: "Design Special Event"
   },
   stats: [
     { value: "300+", label: "Verified villas" },
@@ -373,11 +450,12 @@ const en: typeof es = {
   packages: {
     label: "Packages",
     title: "Choose your level of experience",
-    intro: "Clear offer, price anchor and a natural upgrade path to Ultra Private.",
+    intro: "Clear offer, price anchor and a natural upgrade path to Private Client.",
     items: [
       { name: "Escape Essentials", price: "From €8,500", period: "per stay", description: "Ideal for 3–5 night getaways with the core of Ibiza luxury.", features: ["Boutique villa or premium suite", "Convertible or SUV", "Optional half-day charter", "Concierge + WhatsApp priority", "Beach club reservations"], cta: "Design my escape", popular: false },
       { name: "Signature Week", price: "From €28,000", period: "per week", description: "The full experience: high-level villa, yacht and VIP pace with zero friction.", features: ["Villa with pool and sea views", "Yacht day charter included", "Premium fleet for the whole stay", "Private chef 2 dinners", "24/7 concierge + bespoke itinerary", "Guaranteed VIP tables"], cta: "Book Signature", popular: true },
       { name: "Ultra Private", price: "Bespoke", period: "by briefing", description: "For VIP clients, celebrities and groups who demand total discretion and flawless execution.", features: ["Ultra-premium villa / compound", "Multi-day yacht + crew", "Private jet & security optional", "Event planner & full staff", "NDA & privacy protocol", "Dedicated lead concierge"], cta: "Talk to concierge", popular: false },
+      { name: "Private Client", price: "€50,000+", period: "by private briefing only", description: "For those who don't negotiate on standards. Ultra-prime villa, superyacht, private jet and a concierge who anticipates every need before you think it.", features: ["Ultra-prime villa or exclusive compound", "Superyacht + dedicated crew", "Private jet & personal security", "Signature chef at villa", "Full private event management", "Personal concierge 24/7 · NDA included"], cta: "Request private briefing", popular: false },
     ],
     badge: "Most requested",
   },
@@ -395,15 +473,15 @@ const en: typeof es = {
     label: "Inspiration",
     title: "A taste of what awaits you",
     intro: "Villas, yachts, supercars and VIP nights. Just a sample of what we can organize for you in Ibiza.",
-    labels: ["300+ Villas", "600+ Yachts", "Supercar Fleet", "Champagne @ Sea", "Private Chef", "VIP Tables", "Chill Concept", "Open Waters"],
+    labels: ["300+ Villas", "600+ Yachts", "Supercar fleet", "Champagne @ Sea", "Private chef", "VIP Tables", "Chill Concept", "Open Waters"],
   },
   testimonials: {
     label: "Client trust",
     title: "Stories of flawless stays",
     items: [
-      { quote: "We arrived on a Friday and within two hours we were on a day charter to Formentera with a chef on board. Zero friction, pure enjoyment.", name: "Sophie M.", role: "London · Signature Week", rating: 5 },
-      { quote: "We needed total discretion for a group of 12. Villa, G-Wagon, VIP tables and security without a single miss.", name: "A. R.", role: "Dubai · Ultra Private", rating: 5 },
-      { quote: "I thought booking villa + yacht myself would be cheaper. I was wrong: the value is in access and time saved.", name: "Marco & Elena", role: "Milan · Escape Essentials", rating: 5 },
+      { quote: "We arrived on a Friday and within two hours we were on a day charter to Formentera with a chef on board. Zero friction, pure enjoyment.", name: "S. M.", role: "London · Signature Week · Verified client", rating: 5 },
+      { quote: "We needed total discretion for a group of 12. Villa, G-Wagon, VIP tables and security without a single miss.", name: "A. R.", role: "Dubai · Ultra Private · Verified client", rating: 5 },
+      { quote: "I thought booking villa + yacht myself would be cheaper. I was wrong: the value is in access and time saved.", name: "M. & E.", role: "Milan · Escape Essentials · Verified client", rating: 5 },
     ],
   },
   cta: {
@@ -420,7 +498,7 @@ const en: typeof es = {
     title: "Questions before booking",
     intro: "Transparency so everything is clear: real inventory, process and expectations.",
     items: [
-      { q: "How much does a trip with you cost?", a: "It depends on dates, group size and property level. As a reference: escapes from ~€8,500, signature weeks from ~€28,000 and ultra private bespoke. We give you a fixed quote in 24–48h." },
+      { q: "How much does a trip with you cost?", a: "It depends on dates, group size and property level. As a reference: escapes from ~€8,500, signature weeks from ~€28,000 and ultra private bespoke. First response usually within minutes during service hours; full fixed proposal in 24–48h." },
       { q: "Do you really have 300+ villas and 600+ boats?", a: "Yes. Direct access to our own inventory and a verified premium network in Ibiza and Formentera. Not everything is online for privacy, but it's available on request." },
       { q: "Why don't I have an online catalogue to browse?", a: "Because we work 100% personally and the best part of the inventory is off-market: owners don't publish it. Instead, tell us dates and style and we send only what's real and available. More exclusivity, less noise." },
       { q: "Do you only work in high season?", a: "We operate year-round, peaking May to October. Off-season there are villas and yachts with better rates and more exclusivity." },
@@ -461,19 +539,53 @@ const de: typeof es = {
   htmlLang: "de",
   nav: { modelo: "Modell", servicios: "Leistungen", paquetes: "Pakete", galeria: "Galerie", faq: "FAQ", whatsapp: "WhatsApp", reservar: "Buchen" },
   hero: {
-    badge: "300+ Villen · 600+ Boote · 150+ Supersportwagen · Direkter Zugang",
+    badge: "Private Concierge · Ibiza · Direkter Zugang · Keine Reibung",
     h1a: "Ihre einzige Mission",
     h1b: "ist zu chillen.",
     sub: {
-      before: "Den Rest übernehmen wir. ",
-      emphasis: "Sie genießen",
-      after: ", während wir Villa, Yacht, Autos, VIP-Tische, Köche, Transfers und alles Nötige organisieren. Ein einziges WhatsApp, keine Reibung.",
+      before: "",
+      emphasis: "Villa · Yacht · Supercar · VIP · Chef · Jet · Wellness",
+      after: "\nWir gestalten und managen Ihr gesamtes privates Ibiza-Erlebnis. Ein WhatsApp. Keine Reibung.",
     },
-    cta1: "Mein Angebot anfordern",
+    cta1: "Mein Ibiza gestalten",
     cta2: "So funktioniert's",
     conceptLine: "Den Rest übernehmen wir.",
-    formTitle: "Sofortige Antwort",
-    formSub: "Mit echter Verfügbarkeit aus unseren 300+ Villen und 600+ Booten.",
+    formTitle: "Erste Antwort in Minuten",
+    formSub: "Vollständiges Angebot in 24–48h mit echter Verfügbarkeit.",
+    activeAlert: "⚡ 4 aktive Anfragen heute für die Saison 2026",
+  },
+  chaos: {
+    label: "Die Übliche Alternative",
+    title: "Das Chaos von 37 WhatsApp-Chats",
+    subtitle: "Sie könnten versuchen, es selbst zu organisieren. Aber warum sollten Sie Ihren Urlaub ruinieren?",
+    leftTitle: "Konventionelle Buchung",
+    rightTitle: "Mit Uns",
+    leftItems: [
+      "3 Stunden mit der Suche nach Villen auf Airbnb verbringen, die dann doch belegt sind",
+      "Telefonieren mit 4 verschiedenen Yachtanbietern, um Preise und Crew zu vergleichen",
+      "Mietwagenverhandlungen mit lokalen Agenturen, die das genaue Modell nicht garantieren",
+      "Versuche, VIP-Tische in Beach Clubs über einen 'Freund eines Freundes' zu bekommen",
+      "Koordinieren von Transfers, Privatkoch und Wellness mit 6 verschiedenen Anbietern"
+    ],
+    rightItems: [
+      "Ein einziger engagierter WhatsApp-Concierge",
+      "100% verifizierte Optionen mit bestätigter Verfügbarkeit in wenigen Minuten",
+      "Exklusiver Off-Market-Zugang zu den besten Villen und Yachten",
+      "Garantierte VIP-Tische und Reservierungen in den Hotspots der Insel",
+      "Perfekte, integrierte Koordination Ihrer gesamten Reise, ohne einen Finger zu rühren"
+    ],
+    conclusion: "Ihre Wahl: organisatorischer Stress oder absolute Ruhe."
+  },
+  celebrations: {
+    label: "Besondere Anlässe",
+    title: "Entworfen für Große Momente",
+    intro: "Ob Sie für einen runden Geburtstag, einen exklusiven Junggesellenabschied oder ein privates Firmen-Retreat reisen – wir heben das Erlebnis auf ein Elite-Niveau.",
+    items: [
+      { t: "Jubiläen & Geburtstage", d: "Private Villenpartys, maßgeschneidertes Styling, international renommierte DJs und Gourmet-Catering für unvergessliche Erinnerungen." },
+      { t: "VIP-Partys & Events", d: "Tagescharter integriert mit VIP-Zugang zu den exklusivsten Clubs der Welt und einer koordinierten Supercar-Flotte." },
+      { t: "Firmen-Retreats & Gruppen", d: "Absolute Privatsphäre, auf die Minute koordinierte Transferlogistik und erstklassige Wellness- oder Teambuilding-Aktivitäten." }
+    ],
+    cta: "Besonderes Event Planen"
   },
   stats: [
     { value: "300+", label: "Geprüfte Villen" },
@@ -572,11 +684,12 @@ const de: typeof es = {
   packages: {
     label: "Pakete",
     title: "Wählen Sie Ihr Erlebnislevel",
-    intro: "Klares Angebot, Preisanker und natürliches Upgrade zu Ultra Private.",
+    intro: "Klares Angebot, Preisanker und natürliches Upgrade bis Private Client.",
     items: [
       { name: "Escape Essentials", price: "Ab 8.500€", period: "pro Aufenthalt", description: "Ideal für 3–5 Nächte Ausflüge mit dem Kern des Ibiza-Luxus.", features: ["Boutique-Villa oder Premium-Suite", "Cabrio oder SUV", "Optionaler Halbtagescharter", "Concierge + WhatsApp-Priorität", "Beach-Club-Reservierungen"], cta: "Meinen Ausflug planen", popular: false },
       { name: "Signature Week", price: "Ab 28.000€", period: "pro Woche", description: "Das volle Erlebnis: hochwertige Villa, Yacht und VIP-Tempo ohne Reibung.", features: ["Villa mit Pool und Meerblick", "Yacht-Tagescharter inklusive", "Premium-Flotte für den ganzen Aufenthalt", "Privatkoch 2 Abendessen", "24/7-Concierge + maßgeschneiderter Ablauf", "Garantierte VIP-Tische"], cta: "Signature buchen", popular: true },
       { name: "Ultra Private", price: "Maßgeschneidert", period: "nach Briefing", description: "Für VIP-Kunden, Prominente und Gruppen, die totale Diskretion und makellose Ausführung verlangen.", features: ["Ultra-Premium-Villa / Compound", "Mehrtagesyacht + Crew", "Privatjet & Sicherheit optional", "Event-Planer & volles Personal", "NDA & Privatsphäre-Protokoll", "Dedizierter Haupt-Concierge"], cta: "Mit Concierge sprechen", popular: false },
+      { name: "Private Client", price: "€50.000+", period: "nur per privatem Briefing", description: "Für diejenigen, die keine Kompromisse bei Standards eingehen. Ultra-Prime-Villa, Superjacht, Privatjet und ein Concierge, der jeden Bedarf antizipiert.", features: ["Ultra-Prime-Villa oder exklusiver Compound", "Superjacht + dedizierte Crew", "Privatjet & persönliche Sicherheit", "Signaturkoch in der Villa", "Vollständiges Private Event Management", "Persönlicher Concierge 24/7 · NDA inklusive"], cta: "Privates Briefing anfordern", popular: false },
     ],
     badge: "Am häufigsten angefragt",
   },
@@ -594,15 +707,15 @@ const de: typeof es = {
     label: "Inspiration",
     title: "Ein Vorgeschmack auf das, was Sie erwartet",
     intro: "Villen, Yachten, Supercars und VIP-Nächte. Nur eine Kostprobe dessen, was wir für Sie in Ibiza organisieren können.",
-    labels: ["300+ Villen", "600+ Yachten", "Supercar-Flotte", "Champagner @ Sea", "Privatkoch", "VIP-Tische", "Chill-Konzept", "Offenes Meer"],
+    labels: ["300+ Villas", "600+ Yachts", "Supercar fleet", "Champagne @ Sea", "Private chef", "VIP Tables", "Chill Concept", "Open Waters"],
   },
   testimonials: {
     label: "Kundenvertrauen",
     title: "Geschichten makelloser Aufenthalte",
     items: [
-      { quote: "Wir kamen an einem Freitag an und innerhalb von zwei Stunden waren wir auf einem Tagescharter nach Formentera mit Koch an Bord. Keine Reibung, purer Genuss.", name: "Sophie M.", role: "London · Signature Week", rating: 5 },
-      { quote: "Wir brauchten totale Diskretion für eine Gruppe von 12. Villa, G-Wagon, VIP-Tische und Sicherheit ohne einen einzigen Fehler.", name: "A. R.", role: "Dubai · Ultra Private", rating: 5 },
-      { quote: "Ich dachte, Villa + Yacht selbst zu buchen wäre günstiger. Ich irrte mich: Der Wert liegt im Zugang und der gesparten Zeit.", name: "Marco & Elena", role: "Mailand · Escape Essentials", rating: 5 },
+      { quote: "Wir kamen an einem Freitag an und innerhalb von zwei Stunden waren wir auf einem Tagescharter nach Formentera mit Koch an Bord. Keine Reibung, purer Genuss.", name: "S. M.", role: "London · Signature Week · Verifizierter Kunde", rating: 5 },
+      { quote: "Wir brauchten totale Diskretion für eine Gruppe von 12. Villa, G-Wagon, VIP-Tische und Sicherheit ohne einen einzigen Fehler.", name: "A. R.", role: "Dubai · Ultra Private · Verifizierter Kunde", rating: 5 },
+      { quote: "Ich dachte, Villa + Yacht selbst zu buchen wäre günstiger. Ich irrte mich: Der Wert liegt im Zugang und der gesparten Zeit.", name: "M. & E.", role: "Mailand · Escape Essentials · Verifizierter Kunde", rating: 5 },
     ],
   },
   cta: {
@@ -619,7 +732,7 @@ const de: typeof es = {
     title: "Fragen vor der Buchung",
     intro: "Transparenz, damit alles klar ist: echtes Inventar, Ablauf und Erwartungen.",
     items: [
-      { q: "Was kostet eine Reise bei euch?", a: "Das hängt von Daten, Gruppengröße und Niveau der Unterkunft ab. Als Referenz: Ausflüge ab ~8.500€, Signature-Wochen ab ~28.000€ und Ultra Private maßgeschneidert. Wir geben Ihnen ein Festpreisangebot in 24–48 Std." },
+      { q: "Was kostet eine Reise bei euch?", a: "Das hängt von Daten, Gruppengröße und Niveau der Unterkunft ab. Als Referenz: Ausflüge ab ~8.500€, Signature-Wochen ab ~28.000€ und Ultra Private maßgeschneidert. Erste Antwort in der Regel in Minuten während der Servicezeiten; vollständiges Festpreisangebot in 24–48 Std." },
       { q: "Habt ihr wirklich 300+ Villen und 600+ Boote?", a: "Ja. Direkter Zugang zu Inventar und einem geprüften Premium-Netzwerk auf Ibiza und Formentera. Nicht alles ist online aus Privatsphäre, aber auf Anfrage verfügbar." },
       { q: "Warum habe ich keinen Online-Katalog zum Durchschauen?", a: "Weil wir 100% persönlich arbeiten und der beste Teil des Inventars Off-Market ist: Eigentümer veröffentlichen ihn nicht. Stattdessen nennen Sie uns Daten und Stil und wir senden nur das Echte und Verfügbare. Mehr Exklusivität, weniger Lärm." },
       { q: "Arbeitet ihr nur in der Hauptsaison?", a: "Wir sind ganzjährig tätig, mit Höhepunkt Mai bis Oktober. Nebensaison gibt es Villen und Yachten mit besseren Preisen und mehr Exklusivität." },
@@ -660,19 +773,53 @@ const fr: typeof es = {
   htmlLang: "fr",
   nav: { modelo: "Modèle", servicios: "Services", paquetes: "Forfaits", galeria: "Galerie", faq: "FAQ", whatsapp: "WhatsApp", reservar: "Réserver" },
   hero: {
-    badge: "300+ villas · 600+ bateaux · 150+ supercars · Accès direct",
+    badge: "Concierge privé · Ibiza · Accès direct · Zéro friction",
     h1a: "Votre seule mission",
     h1b: "est de chill.",
     sub: {
-      before: "Du reste, on s'occupe. ",
-      emphasis: "Vous profitez",
-      after: " pendant qu'on organise villa, yacht, voitures, tables VIP, chefs, transferts et tout le nécessaire. Un seul WhatsApp, zéro friction.",
+      before: "",
+      emphasis: "Villa · Yacht · Supercar · VIP · Chef · Jet · Wellness",
+      after: "\nOn conçoit et gère toute votre expérience privée à Ibiza. Un seul WhatsApp. Zéro friction.",
     },
-    cta1: "Je veux mon offre",
+    cta1: "Créer mon Ibiza",
     cta2: "Comment ça marche",
     conceptLine: "Du reste, on s'occupe.",
-    formTitle: "Réponse immédiate",
-    formSub: "Avec une disponibilité réelle sur nos 300+ villas et 600+ bateaux.",
+    formTitle: "Première réponse en minutes",
+    formSub: "Proposition complète en 24–48h avec disponibilité réelle.",
+    activeAlert: "⚡ 4 demandes actives aujourd'hui pour la saison 2026",
+  },
+  chaos: {
+    label: "L'Alternative Commune",
+    title: "Le chaos de 37 WhatsApps",
+    subtitle: "Vous pourriez essayer de l'organiser vous-même. Mais pourquoi gâcher vos vacances ?",
+    leftTitle: "Réservation Classique",
+    rightTitle: "Avec Nous",
+    leftItems: [
+      "Passer 3 heures à chercher des villas sur Airbnb pour s'apercevoir qu'elles sont prises",
+      "Appeler 4 agences de yachts différentes pour comparer les tarifs et l'équipage",
+      "Négocier des voitures de luxe avec des agences locales qui ne garantissent pas le modèle",
+      "Tenter d'obtenir une table VIP via un 'ami d'un ami'",
+      "Coordonner transferts, chef privé et massages avec 6 prestataires différents"
+    ],
+    rightItems: [
+      "Un seul contact WhatsApp dédié",
+      "Options 100% vérifiées avec disponibilité confirmée en quelques minutes",
+      "Accès premium off-market aux plus belles villas et yachts",
+      "Garantie absolue de tables VIP et réservations dans les hotspots de l'île",
+      "Coordination fluide et intégrée de tout votre voyage sans lever le petit doigt"
+    ],
+    conclusion: "Votre choix : le stress logistique ou la tranquillité absolue."
+  },
+  celebrations: {
+    label: "Moments Spéciaux",
+    title: "Conçu pour les Grandes Occasions",
+    intro: "Que vous voyagiez pour un anniversaire marquant, un enterrement de vie de célibataire exclusif ou un séminaire d'entreprise privé, nous élevons l'expérience à un standard d'élite.",
+    items: [
+      { t: "Anniversaires & Célébrations", d: "Soirées privées dans des villas exclusives, décoration sur mesure, DJs de renommée internationale et dîner gastronomique." },
+      { t: "Fêtes VIP & EVG/EVJF", d: "Day charters intégrés avec accès VIP aux clubs les plus exclusifs du monde et flotte de supercars coordonnée." },
+      { t: "Retraits d'Entreprise & Groupes", d: "Confidentialité totale, logistique de transferts réglée au millimètre et activités de team building haut de gamme." }
+    ],
+    cta: "Concevoir un Événement Spécial"
   },
   stats: [
     { value: "300+", label: "Villas vérifiées" },
@@ -771,11 +918,12 @@ const fr: typeof es = {
   packages: {
     label: "Forfaits",
     title: "Choisissez votre niveau d'expérience",
-    intro: "Offre claire, ancre de prix et montée naturelle vers Ultra Private.",
+    intro: "Offre claire, ancre de prix et montée naturelle vers Private Client.",
     items: [
       { name: "Escape Essentials", price: "À partir de 8 500€", period: "par séjour", description: "Idéal pour des escapades de 3–5 nuits avec le cœur du luxe ibizenco.", features: ["Villa boutique ou suite premium", "Cabriolet ou SUV", "Demi-journée charter en option", "Concierge + WhatsApp prioritaire", "Réservations beach club"], cta: "Créer mon escapade", popular: false },
       { name: "Signature Week", price: "À partir de 28 000€", period: "par semaine", description: "L'expérience complète : villa haut de gamme, yacht et rythme VIP sans friction.", features: ["Villa avec piscine et vue mer", "Yacht day charter inclus", "Flotte premium pour tout le séjour", "Chef privé 2 dîners", "Concierge 24/7 + programme sur mesure", "Tables VIP garanties"], cta: "Réserver Signature", popular: true },
       { name: "Ultra Private", price: "Sur mesure", period: "sur briefing", description: "Pour les clients VIP, célébrités et groupes qui exigent une discrétion totale et une exécution irréprochable.", features: ["Villa ultra-premium / compound", "Yacht multi-jours + équipage", "Jet privé & sécurité en option", "Event planner & personnel complet", "NDA & protocole de confidentialité", "Concierge dédié exclusif"], cta: "Parler au concierge", popular: false },
+      { name: "Private Client", price: "€50 000+", period: "sur briefing privé uniquement", description: "Pour ceux qui ne négocient pas sur les standards. Villa ultra-prime, superyacht, jet privé et un concierge qui anticipe chaque besoin avant que vous y pensiez.", features: ["Villa ultra-prime ou compound exclusif", "Superyacht + équipage dédié", "Jet privé & sécurité personnelle", "Chef signature à la villa", "Gestion complète d'événements privés", "Concierge personnel 24/7 · NDA inclus"], cta: "Demander un briefing privé", popular: false },
     ],
     badge: "Le plus demandé",
   },
@@ -793,15 +941,15 @@ const fr: typeof es = {
     label: "Inspiration",
     title: "Un avant-goût de ce qui vous attend",
     intro: "Villas, yachts, supercars et nuits VIP. Juste un échantillon de ce qu'on peut organiser pour vous à Ibiza.",
-    labels: ["300+ Villas", "600+ Yachts", "Flotte Supercars", "Champagne @ Sea", "Chef privé", "Tables VIP", "Concept Chill", "Grand Large"],
+    labels: ["300+ Villas", "600+ Yachts", "Supercar fleet", "Champagne @ Sea", "Private chef", "VIP Tables", "Chill Concept", "Open Waters"],
   },
   testimonials: {
     label: "Confiance clients",
     title: "Histoires de séjours impeccables",
     items: [
-      { quote: "On est arrivés un vendredi et deux heures plus tard on était en day charter vers Formentera avec un chef à bord. Zéro friction, pur plaisir.", name: "Sophie M.", role: "Londres · Signature Week", rating: 5 },
-      { quote: "On avait besoin d'une discrétion totale pour un groupe de 12. Villa, G-Wagon, tables VIP et sécurité sans le moindre faux pas.", name: "A. R.", role: "Dubaï · Ultra Private", rating: 5 },
-      { quote: "Je pensais que réserver villa + yacht moi-même serait moins cher. Je me trompais : la valeur est dans l'accès et le temps gagné.", name: "Marco & Elena", role: "Milan · Escape Essentials", rating: 5 },
+      { quote: "On est arrivés un vendredi et deux heures plus tard on était en day charter vers Formentera avec un chef à bord. Zéro friction, pur plaisir.", name: "S. M.", role: "Londres · Signature Week · Client vérifié", rating: 5 },
+      { quote: "On avait besoin d'une discrétion totale pour un groupe de 12. Villa, G-Wagon, tables VIP et sécurité sans le moindre faux pas.", name: "A. R.", role: "Dubaï · Ultra Private · Client vérifié", rating: 5 },
+      { quote: "Je pensais que réserver villa + yacht moi-même serait moins cher. Je me trompais : la valeur est dans l'accès et le temps gagné.", name: "M. & E.", role: "Milan · Escape Essentials · Client vérifié", rating: 5 },
     ],
   },
   cta: {
@@ -818,7 +966,7 @@ const fr: typeof es = {
     title: "Questions avant de réserver",
     intro: "Transparence pour que tout soit clair : inventaire réel, processus et attentes.",
     items: [
-      { q: "Combien coûte un voyage chez vous ?", a: "Cela dépend des dates, de la taille du groupe et du niveau de propriété. Pour référence : escapades dès ~8 500€, semaines signature dès ~28 000€ et ultra private sur mesure. On vous donne un devis ferme en 24–48h." },
+      { q: "Combien coûte un voyage chez vous ?", a: "Cela dépend des dates, de la taille du groupe et du niveau de propriété. Pour référence : escapades dès ~8 500€, semaines signature dès ~28 000€ et ultra private sur mesure. Première réponse généralement en quelques minutes pendant les heures de service ; devis ferme complet en 24–48h." },
       { q: "Avez-vous vraiment 300+ villas et 600+ bateaux ?", a: "Oui. Accès direct à notre inventaire et à un réseau premium vérifié à Ibiza et Formentera. Tout n'est pas en ligne pour des raisons de confidentialité, mais disponible sur demande." },
       { q: "Pourquoi n'ai-je pas de catalogue en ligne à consulter ?", a: "Parce qu'on travaille 100% personnalisé et que la meilleure partie de l'inventaire est off-market : les propriétaires ne la publient pas. À la place, donnez-nous dates et style et on envoie uniquement ce qui est réel et disponible. Plus d'exclusivité, moins de bruit." },
       { q: "Travaillez-vous seulement en haute saison ?", a: "On opère toute l'année, avec un pic de mai à octobre. Hors saison, il y a des villas et yachts à des tarifs plus attractifs et plus d'exclusivité." },
@@ -858,14 +1006,14 @@ const fr: typeof es = {
 export const translations: Record<Lang, typeof es> = { es, en, de, fr };
 
 export const galleryImages = [
-  "/images/hero-dramatic.svg",
-  "/images/yacht-glamour.svg",
-  "/images/cars-fleet.svg",
-  "/images/champagne-yacht.svg",
-  "/images/chef-villa.svg",
-  "/images/vip-night.svg",
-  "/images/chill-concept.svg",
-  "/images/yacht-sea.svg",
+  "/images/hero-dramatic.jpg",
+  "/images/yacht-glamour.jpg",
+  "/images/cars-fleet.jpg",
+  "/images/champagne-yacht.jpg",
+  "/images/chef-villa.jpg",
+  "/images/vip-tables.jpg",
+  "/images/chill-concept.jpg",
+  "/images/yacht-sea.jpg",
 ];
 
 export const galleryAlts = [

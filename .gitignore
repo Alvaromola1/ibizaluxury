@@ -1,0 +1,10 @@
+.vercel
+node_modules
+.next
+next-env.d.ts
+tsconfig.tsbuildinfo
+package-lock.json
+.DS_Store
+paquete-definitivo-ibiza-luxury/
+public/.DS_Store
+public/images/.DS_Store

@@ -77,7 +77,7 @@ export const services = [
     subtitle: "Acceso real, no catálogo genérico",
     description:
       "Desde joyas escondidas en Es Cubells hasta compounds con staff completo en Cala Jondal. Todas verificadas y con disponibilidad real.",
-    image: "/images/hero-dramatic.svg",
+    image: "/images/hero-dramatic.jpg",
     highlights: ["Infinity pool & sea views", "Private chef & housekeeping", "Discreet high-end locations"],
   },
   {
@@ -86,7 +86,7 @@ export const services = [
     subtitle: "De day charter a superyate",
     description:
       "De Antonio, Axopar, Sunseeker, Sanlorenzo, Azimut. Tripulación, catering premium, rutas a calas que solo conocemos nosotros.",
-    image: "/images/yacht-glamour.svg",
+    image: "/images/yacht-glamour.jpg",
     highlights: ["Day & multi-day charters", "Crew & gourmet catering", "Formentera + calas secretas"],
   },
   {
@@ -95,7 +95,7 @@ export const services = [
     subtitle: "G63, Urus, Ferrari, McLaren...",
     description:
       "No hablamos de 10 coches. Catálogo amplio de supercars, cabrios, SUV premium. Entrega en aeropuerto, villa o puerto en 90 min.",
-    image: "/images/cars-fleet.svg",
+    image: "/images/cars-fleet.jpg",
     highlights: ["G63, Urus, Ferrari, SL AMG", "Airport & villa delivery 90′", "Multi-day flexible"],
   },
   {
@@ -104,7 +104,7 @@ export const services = [
     subtitle: "El concepto: tú no haces nada",
     description:
       "Mesas VIP en los mejores beach clubs, chefs privados en tu villa, wellness al amanecer, jets privados, seguridad, fiestas a medida. Si lo imaginas, lo hacemos pasar.",
-    image: "/images/vip-night.svg",
+    image: "/images/vip-night.jpg",
     highlights: ["Mesas VIP & beach clubs", "Chefs privados & fiestas", "Jet, wellness, security"],
   },
 ];
@@ -263,15 +263,15 @@ export const faq = [
 ];
 
 export const gallery = [
-  { src: "/images/hero-dramatic.svg", alt: "Villa cliffside con infinity pool al atardecer", label: "300+ Villas" },
-  { src: "/images/yacht-glamour.svg", alt: "Superyate en aguas turquesas", label: "600+ Yates" },
-  { src: "/images/cars-fleet.svg", alt: "Flota de supercars G63, Urus, Ferrari", label: "Flota Supercars" },
-  { src: "/images/champagne-yacht.svg", alt: "Champagne en yate frente a Ibiza", label: "Champagne @ Sea" },
-  { src: "/images/chef-villa.svg", alt: "Private chef en villa de lujo", label: "Private Chef" },
-  { src: "/images/vip-night.svg", alt: "Experiencia VIP beach club al atardecer", label: "VIP Access" },
-  { src: "/images/chill-concept.svg", alt: "Persona de chill en piscina infinity", label: "Chill Concept" },
-  { src: "/images/fleet-showroom.svg", alt: "Showroom supercars Lamborghini", label: "Luxe Fleet" },
-  { src: "/images/yacht-sea.svg", alt: "Yate navegando sobre aguas cristalinas", label: "Open Sea" },
+  { src: "/images/hero-dramatic.jpg", alt: "Villa cliffside con infinity pool al atardecer", label: "300+ Villas" },
+  { src: "/images/yacht-glamour.jpg", alt: "Superyate en aguas turquesas", label: "600+ Yates" },
+  { src: "/images/cars-fleet.jpg", alt: "Flota de supercars G63, Urus, Ferrari", label: "Flota Supercars" },
+  { src: "/images/champagne-yacht.jpg", alt: "Champagne en yate frente a Ibiza", label: "Champagne @ Sea" },
+  { src: "/images/chef-villa.jpg", alt: "Private chef en villa de lujo", label: "Private Chef" },
+  { src: "/images/vip-night.jpg", alt: "Experiencia VIP beach club al atardecer", label: "VIP Access" },
+  { src: "/images/chill-concept.jpg", alt: "Persona de chill en piscina infinity", label: "Chill Concept" },
+  { src: "/images/car-lambo.jpg", alt: "Showroom supercars Lamborghini", label: "Luxe Fleet" },
+  { src: "/images/yacht-sea.jpg", alt: "Yate navegando sobre aguas cristalinas", label: "Open Sea" },
 ];
 
 export const concepts = {

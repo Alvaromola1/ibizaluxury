@@ -1,40 +1,27 @@
 "use client";
 
+import { LanguageProvider, useT, useLang } from "@/components/LanguageProvider";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { LeadForm } from "@/components/LeadForm";
 import { Faq } from "@/components/Faq";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
-import { CookieBanner } from "@/components/CookieBanner";
+import { MobileCTA } from "@/components/MobileCTA";
 import { brand } from "@/lib/content";
-import { useLang, galleryItems, B } from "@/lib/i18n";
-
-const HERO_VIDEO = "/videos/hero-loop.mp4";
-
-const fleetBrands = [
-  "Azimut",
-  "Sunseeker",
-  "Sanlorenzo",
-  "Ferrari",
-  "Lamborghini",
-  "Mercedes-AMG",
-  "Rolls-Royce",
-  "Mangusta",
-];
-
-const marquee = [
-  "Villas Cala Jondal",
-  "Yacht Charter Formentera",
-  "G63 & SL AMG",
-  "Private Chef",
-  "Beach Club Access",
-  "Jet & Transfers",
-  "Ultra Private Events",
-  "24/7 Concierge",
-];
+import { galleryImages, galleryAlts } from "@/lib/translations";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 export default function HomePage() {
-  const { t } = useLang();
+  return (
+    <LanguageProvider>
+      <HomeContent />
+    </LanguageProvider>
+  );
+}
+
+function HomeContent() {
+  const t = useT();
+  const { lang } = useLang();
 
   return (
     <>
@@ -44,30 +31,36 @@ export default function HomePage() {
         <section className="relative min-h-screen overflow-hidden bg-[#0c1520]">
           <img
             src="/images/hero-dramatic.jpg"
-            alt="Ibiza luxury villa"
+            alt="Luxury cliffside villa with infinity pool at sunset in Ibiza"
             className="media-fill"
           />
           <div className="hero-overlay absolute inset-0" />
 
           <div className="container-wide relative grid min-h-screen items-center gap-10 pb-16 pt-28 lg:grid-cols-[1.15fr_0.85fr] lg:pb-20">
-            <div className="max-w-2xl">
-              <p className="anim-rise section-label" style={{ color: "#d4b06a" }}>
-                {t.hero.label}
+            <div className="max-w-[720px]">
+              <p className="anim-rise inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/20 px-4 py-1.5 text-[11px] uppercase tracking-[0.18em] text-[#f7f3ec]/90 backdrop-blur">
+                <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
+                {t.hero.badge}
               </p>
-              <h1 className="anim-rise-delay-1 mt-4 font-display text-5xl leading-none text-[#f7f3ec] md:text-7xl">
+              <h1 className="anim-rise-delay-1 mt-5 font-display text-5xl leading-[0.9] text-[#f7f3ec] md:text-[4.8rem] md:leading-[0.9]">
                 {t.hero.h1a}
                 <span className="mt-2 block text-gold-gradient">{t.hero.h1b}</span>
               </h1>
-              <p className="anim-rise-delay-2 mt-6 max-w-xl text-base leading-relaxed text-[#f7f3ec]/cc md:text-lg">
-                <B text={t.hero.sub} />
-              </p>
+              <div className="anim-rise-delay-2 mt-6 max-w-xl space-y-3">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#d4b06a]">
+                  {t.hero.sub.emphasis}
+                </p>
+                <p className="text-base leading-relaxed text-[#f7f3ec]/85 md:text-lg">
+                  {t.hero.sub.after.replace(/^\n/, "")}
+                </p>
+              </div>
 
               <div className="anim-rise-delay-3 mt-8 flex flex-wrap gap-3">
                 <a href="#reserva" className="btn-primary">
-                  {t.hero.cta1}
+                  {t.hero.cta1} →
                 </a>
                 <a
-                  href="#servicios"
+                  href="#chill"
                   className="rounded-full border border-white/25 bg-white/10 px-6 py-3.5 text-xs font-bold uppercase tracking-widest text-[#f7f3ec] backdrop-blur transition hover:bg-white/15"
                 >
                   {t.hero.cta2}
@@ -76,31 +69,34 @@ export default function HomePage() {
 
               <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {t.stats.map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="rounded-2xl border border-white/15 bg-black/30 p-4 backdrop-blur"
-                  >
+                  <div key={stat.label} className="rounded-2xl border border-white/15 bg-black/30 p-4 backdrop-blur">
                     <p className="font-display text-3xl text-[#d4b06a]">{stat.value}</p>
-                    <p className="mt-1 text-[11px] uppercase tracking-wider text-[#f7f3ec]/99">
-                      {stat.label}
-                    </p>
+                    <p className="mt-1 text-[11px] uppercase tracking-wider text-[#f7f3ec]/90">{stat.label}</p>
                   </div>
                 ))}
               </div>
+
+              <p className="mt-6 text-[11px] tracking-[0.14em] text-[#f7f3ec]/70">{t.hero.conceptLine}</p>
             </div>
 
             <div className="anim-rise-delay-2 rounded-[28px] border border-white/15 bg-[#0c1520]/80 p-5 shadow-2xl backdrop-blur-xl md:p-7">
+              {/* Urgency Badge */}
+              <div className="mb-4 inline-flex items-center gap-2 rounded-xl bg-amber-500/10 border border-amber-500/20 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-amber-300">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                </span>
+                {t.hero.activeAlert}
+              </div>
               <div className="mb-5 flex items-start justify-between gap-3">
                 <div>
-                  <p className="text-[11px] uppercase tracking-[0.2em] text-[#d4b06a]">
-                    {t.hero.priority}
-                  </p>
-                  <h2 className="mt-1 font-display text-3xl text-[#f7f3ec]">
-                    {t.hero.formTitle}
-                  </h2>
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-[#d4b06a]">{t.hero.formTitle}</p>
+                  <h2 className="mt-1 font-display text-3xl text-[#f7f3ec]">{t.hero.formTitle}</h2>
+                  <p className="mt-1 text-xs text-[#f7f3ec]/60">{t.hero.formSub}</p>
                 </div>
-                <span className="rounded-full border border-emerald-300/30 bg-emerald-400/10 px-3 py-1 text-[10px] uppercase tracking-wider text-emerald-200">
-                  {t.hero.online}
+                <span className="pulse-ring rounded-full border border-emerald-300/30 bg-emerald-400/10 px-3 py-1 text-[10px] uppercase tracking-wider text-emerald-200">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 mr-1.5 inline-block" />
+                  Online
                 </span>
               </div>
               <LeadForm compact dark />
@@ -108,10 +104,57 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* TRUST BAR (FORMERLY INVENTORY STRIP) */}
+        <section className="border-y border-[#e6dfd2] bg-white py-4 shadow-sm">
+          <div className="container-wide grid grid-cols-2 gap-4 divide-y-0 md:grid-cols-4 md:divide-x md:divide-[#e6dfd2] text-center md:text-left">
+            <div className="px-4 py-2 flex flex-col justify-center">
+              <div className="flex items-center justify-center md:justify-start gap-1 text-[#b8924a]">
+                {"★".repeat(5)}
+              </div>
+              <p className="mt-1.5 text-xs font-bold uppercase tracking-wider text-[#0c1520]">5.0 ProvenExpert</p>
+              <p className="text-[11px] text-[#6d655a]">{lang === "es" ? "47+ estancias impecables" : "47+ flawless stays"}</p>
+            </div>
+            
+            <div className="px-4 py-2 flex flex-col justify-center">
+              <p className="text-xs font-bold uppercase tracking-wider text-[#0c1520]">{lang === "es" ? "🔒 NDA Disponible" : "🔒 NDA Available"}</p>
+              <p className="mt-1 text-[11px] text-[#6d655a]">{lang === "es" ? "Privacidad absoluta garantizada" : "Absolute discretion guaranteed"}</p>
+            </div>
+
+            <div className="px-4 py-2 flex flex-col justify-center">
+              <p className="text-xs font-bold uppercase tracking-wider text-emerald-600 flex items-center justify-center md:justify-start gap-1.5">
+                <span className="pulse-ring h-2 w-2 rounded-full bg-emerald-500" />
+                {lang === "es" ? "⚡ Respuesta rápida" : "⚡ Fast Response"}
+              </p>
+              <p className="mt-1 text-[11px] text-[#6d655a]">{lang === "es" ? "Contacto directo por WhatsApp" : "Direct WhatsApp contact"}</p>
+            </div>
+
+            <div className="px-4 py-2 flex flex-col justify-center">
+              <p className="text-xs font-bold uppercase tracking-wider text-[#0c1520]">📍 Local en Ibiza</p>
+              <p className="mt-1 text-[11px] text-[#6d655a]">{lang === "es" ? "Presencia física y red off-market" : "Physical presence & off-market network"}</p>
+            </div>
+          </div>
+        </section>
+
+        {/* PARTNERS LOGO BAR */}
+        <section className="bg-white py-8">
+          <div className="container-wide">
+            <p className="text-center text-[11px] uppercase tracking-[0.22em]" style={{ color: "#6d655a" }}>
+              {t.partners.label}
+            </p>
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+              {t.partners.names.map((name) => (
+                <span key={name} className="font-display text-xl md:text-2xl" style={{ color: "#9a9083" }}>
+                  {name}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* MARQUEE */}
-        <section className="overflow-hidden border-y border-[#e6dfd2] bg-[#efe8db] py-4">
+        <section className="overflow-hidden border-b border-[#e6dfd2] bg-[#efe8db] py-4">
           <div className="marquee-track flex gap-10 whitespace-nowrap text-xs font-semibold uppercase tracking-[0.24em] text-[#6d655a]">
-            {[...marquee, ...marquee].map((item, i) => (
+            {t.marquee.map((item, i) => (
               <span key={`${item}-${i}`} className="flex items-center gap-10">
                 <span>{item}</span>
                 <span className="text-[#b8924a]">◆</span>
@@ -120,93 +163,185 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ACCESS NUMBERS */}
-        <section className="bg-[#0c1520] py-16 text-[#f7f3ec] md:py-20">
+        {/* CHAOS SECTION (PROBLEM/SOLUTION) */}
+        <section className="bg-white py-20 border-b border-[#e6dfd2]">
           <div className="container-wide">
-            <div className="max-w-3xl">
-              <p className="section-label" style={{ color: "#d4b06a" }}>
-                {t.access.label}
+            <ScrollReveal className="text-center max-w-3xl mx-auto">
+              <p className="section-label">{t.chaos.label}</p>
+              <h2 className="mt-3 font-display text-4xl text-[#0c1520] md:text-5xl leading-tight">
+                {t.chaos.title}
+              </h2>
+              <p className="mt-4 text-[#6d655a] text-base md:text-lg">
+                {t.chaos.subtitle}
               </p>
-              <h2 className="mt-3 font-display text-3xl md:text-5xl">{t.access.title}</h2>
-              <p className="mt-4 text-base leading-relaxed text-[#f7f3ec]/75 md:text-lg">
-                <B text={t.access.p1} />
-              </p>
-              <p className="mt-4 text-sm leading-relaxed text-[#f7f3ec]/60">
-                {t.access.p2}
-              </p>
-            </div>
+            </ScrollReveal>
 
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {t.proof.map((item) => (
-                <div
-                  key={item.small}
-                  className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur"
-                >
-                  <p className="font-display text-5xl text-[#d4b06a]">{item.big}</p>
-                  <p className="mt-2 text-sm uppercase tracking-wider text-[#f7f3ec]/70">
-                    {item.small}
-                  </p>
+            <div className="mt-12 grid gap-8 lg:grid-cols-2">
+              {/* Left Column - The Stress */}
+              <ScrollReveal delay={1} className="rounded-3xl border border-red-200/50 bg-red-50/10 p-6 md:p-8">
+                <h3 className="font-display text-2xl text-red-950 flex items-center gap-2 mb-6">
+                  <span>❌</span> {t.chaos.leftTitle}
+                </h3>
+                <ul className="space-y-4">
+                  {t.chaos.leftItems.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-sm text-red-900/80">
+                      <span className="mt-0.5 shrink-0 text-red-500 font-bold">✕</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </ScrollReveal>
+
+              {/* Right Column - The Solution */}
+              <ScrollReveal delay={2} className="rounded-3xl border border-[#b8924a]/30 bg-gradient-to-br from-[#fcfaf6] to-white p-6 md:p-8 shadow-lg relative overflow-hidden">
+                <div className="absolute top-0 right-0 bg-[#b8924a]/10 text-[#8f6d34] text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-bl-xl">
+                  {lang === "es" ? "Cero Fricción" : "Zero Friction"}
                 </div>
-              ))}
+                <h3 className="font-display text-2xl text-[#8f6d34] flex items-center gap-2 mb-6">
+                  <span>✨</span> {t.chaos.rightTitle}
+                </h3>
+                <ul className="space-y-4">
+                  {t.chaos.rightItems.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-sm text-[#0c1520]/90 font-medium">
+                      <span className="mt-0.5 shrink-0 text-emerald-500 font-bold">✓</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </ScrollReveal>
+            </div>
+            
+            <ScrollReveal delay={3} className="text-center mt-10">
+              <p className="font-display text-lg text-[#0c1520]/80 italic">
+                “{t.chaos.conclusion}”
+              </p>
+            </ScrollReveal>
+          </div>
+        </section>
+
+        {/* CHILL CONCEPT — versión B clara */}
+        <section id="chill" className="relative overflow-hidden bg-[#fcfaf6] py-20 md:py-28">
+          <div className="container-wide grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div>
+              <p className="section-label">{t.chill.label}</p>
+              <h2 className="mt-3 font-display text-4xl leading-tight text-[#0c1520] md:text-6xl md:leading-[0.9]">
+                {t.chill.headline}
+              </h2>
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-[#6d655a] md:text-lg">{t.chill.sub}</p>
+
+              <div className="mt-10 grid gap-4">
+                {t.chill.bullets.map((b) => (
+                  <div key={b.title} className="card-lux flex gap-4 p-5">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#f7f3ec] text-lg text-[#b8924a]">
+                      {b.icon}
+                    </div>
+                    <div>
+                      <h3 className="font-display text-xl text-[#0c1520]">{b.title}</h3>
+                      <p className="mt-1 text-sm leading-relaxed text-[#6d655a]">{b.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 rounded-2xl border border-[#b8924a]/20 bg-[#b8924a]/5 p-5 text-sm leading-relaxed text-[#6d655a]">
+                <strong className="text-[#0c1520]">{t.chill.scene}</strong>
+              </div>
             </div>
 
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 border-t border-white/10 pt-10">
-              {fleetBrands.map((name) => (
-                <span
-                  key={name}
-                  className="font-display text-xl tracking-[0.14em] text-[#f7f3ec]/40 transition hover:text-[#d4b06a]/70 md:text-2xl"
-                >
-                  {name}
-                </span>
-              ))}
+            <div className="relative">
+              <div className="overflow-hidden rounded-[32px] bg-[#0c1520]">
+                <img src="/images/chill-concept.jpg" alt="Relaxing at infinity pool with everything handled" className="media-card media-card-tall" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              </div>
+
+              <div className="absolute -bottom-6 -left-6 hidden rounded-[20px] border border-[#e6dfd2] bg-white p-4 shadow-xl md:block">
+                <p className="text-[10px] uppercase tracking-[0.16em] text-[#6d655a]">{t.chill.exampleLabel}</p>
+                <p className="mt-1 max-w-[220px] font-display text-lg leading-tight text-[#0c1520]">{t.chill.exampleText}</p>
+                <p className="mt-2 text-xs text-[#6d655a]">{t.chill.exampleReply}</p>
+              </div>
+
+              <div className="mt-6 grid grid-cols-2 gap-4">
+                <img src="/images/chef-villa.jpg" alt="Private chef at villa" className="h-40 w-full rounded-2xl object-cover" />
+                <img src="/images/champagne-yacht.jpg" alt="Champagne on yacht" className="h-40 w-full rounded-2xl object-cover" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* NO CATALOG */}
+        <section id="modelo" className="bg-[#0c1520] py-20 text-[#f7f3ec] md:py-28">
+          <div className="container-wide grid gap-12 lg:grid-cols-2 lg:items-start">
+            <div>
+              <p className="section-label" style={{ color: "#d4b06a" }}>{t.noCatalog.eyebrow}</p>
+              <h2 className="mt-3 font-display text-4xl leading-tight md:text-6xl md:leading-[0.95]">{t.noCatalog.headline}</h2>
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-[#f7f3ec]/80 md:text-lg">{t.noCatalog.text}</p>
+
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                {t.noCatalog.points.map((p) => (
+                  <div key={p.t} className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#b8924a]/15 text-[#d4b06a]">{p.icon}</div>
+                    <h3 className="mt-3 font-display text-xl text-[#f7f3ec]">{p.t}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-[#f7f3ec]/65">{p.d}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="lg:sticky lg:top-24">
+              <div className="overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.04] backdrop-blur">
+                <div className="grid grid-cols-3 border-b border-white/10 text-[10px] uppercase tracking-[0.14em]">
+                  <div className="px-4 py-4 text-[#f7f3ec]/45">{t.noCatalog.compareHead[0]}</div>
+                  <div className="px-4 py-4 text-[#f7f3ec]/55">{t.noCatalog.compareHead[1]}</div>
+                  <div className="px-4 py-4 text-[#d4b06a]">{t.noCatalog.compareHead[2]}</div>
+                </div>
+                {t.noCatalog.compare.map((row) => (
+                  <div key={row.aspect} className="grid grid-cols-3 gap-2 border-t border-white/10 text-sm">
+                    <div className="px-4 py-4 font-medium text-[#f7f3ec]/90">{row.aspect}</div>
+                    <div className="flex items-center gap-2 px-4 py-4 text-[#f7f3ec]/45">
+                      <span className="text-red-300/70">✕</span>
+                      <span>{row.others}</span>
+                    </div>
+                    <div className="flex items-center gap-2 px-4 py-4 text-[#f7f3ec]">
+                      <span className="text-[#d4b06a]">✓</span>
+                      <span>{row.us}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-5 rounded-[24px] border border-[#b8924a]/30 bg-gradient-to-r from-[#b8924a]/15 to-transparent p-6">
+                <p className="font-display text-2xl leading-snug text-[#f7f3ec]">{t.noCatalog.quote}</p>
+                <a href="#reserva" className="btn-primary mt-5">{t.noCatalog.cta} →</a>
+              </div>
             </div>
           </div>
         </section>
 
         {/* SERVICES */}
-        <section id="servicios" className="bg-[#fcfaf6] py-20 md:py-28">
+        <section id="servicios" className="bg-[#f7f3ec] py-20 md:py-28">
           <div className="container-wide">
             <div className="max-w-2xl">
               <p className="section-label">{t.services.label}</p>
-              <h2 className="mt-3 font-display text-4xl text-[#0c1520] md:text-6xl">
-                {t.services.title}
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-[#6d655a]">
-                {t.services.sub}
-              </p>
+              <h2 className="mt-3 font-display text-4xl text-[#0c1520] md:text-6xl">{t.services.title}</h2>
+              <p className="mt-4 text-base leading-relaxed text-[#6d655a]">{t.services.intro}</p>
             </div>
 
             <div className="mt-12 grid gap-6 md:grid-cols-2">
-              {t.services.items.map((service) => (
-                <article key={service.title} className="card-lux overflow-hidden">
-                  <div className="relative h-64 overflow-hidden bg-[#0c1520]">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="media-cover transition duration-500 hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0c1520]/85 via-[#0c1520]/20 to-transparent" />
+              {t.services.items.map((service, idx) => (
+                <article key={idx} className="card-lux overflow-hidden">
+                  <div className="relative h-72 overflow-hidden bg-[#0c1520]">
+                    <img src={galleryImages[idx]} alt={service.title} className="media-cover transition duration-500 hover:scale-105" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0c1520]/90 via-[#0c1520]/20 to-transparent" />
                     <div className="absolute bottom-5 left-5 right-5">
-                      <p className="text-[11px] uppercase tracking-[0.18em] text-[#d4b06a]">
-                        {service.subtitle}
-                      </p>
-                      <h3 className="mt-1 font-display text-3xl text-[#f7f3ec] md:text-4xl">
-                        {service.title}
-                      </h3>
+                      <p className="inline-flex rounded-full border border-white/20 bg-black/20 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-[#d4b06a] backdrop-blur">{service.subtitle}</p>
+                      <h3 className="mt-3 font-display text-3xl text-[#f7f3ec] md:text-4xl">{service.title}</h3>
                     </div>
                   </div>
                   <div className="space-y-5 p-6 md:p-8">
-                    <p className="text-sm leading-relaxed text-[#6d655a]">
-                      {service.description}
-                    </p>
+                    <p className="text-sm leading-relaxed text-[#6d655a]">{service.description}</p>
                     <ul className="flex flex-wrap gap-2">
                       {service.highlights.map((item) => (
-                        <li
-                          key={item}
-                          className="rounded-full border border-[#b8924a]/30 bg-[#b8924a]/10 px-3 py-1.5 text-[11px] uppercase tracking-wide text-[#8f6d34]"
-                        >
-                          {item}
-                        </li>
+                        <li key={item} className="rounded-full border border-[#b8924a]/30 bg-[#b8924a]/10 px-3 py-1.5 text-[11px] uppercase tracking-wide text-[#8f6d34]">{item}</li>
                       ))}
                     </ul>
                   </div>
@@ -216,34 +351,22 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* PROMISE */}
+        {/* WHY US */}
         <section id="experiencias" className="relative overflow-hidden bg-[#0c1520] py-20 text-[#f7f3ec] md:py-28">
-          <img
-            src="/images/chill-luxury.jpg"
-            alt=""
-            className="media-fill opacity-35"
-            aria-hidden
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0c1520] via-[#0c1520]/90 to-[#0c1520]/65" />
+          <img src="/images/night-vip.jpg" alt="" className="media-fill opacity-30" aria-hidden />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0c1520] via-[#0c1520]/92 to-[#0c1520]/72" />
 
           <div className="container-wide relative grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="section-label" style={{ color: "#d4b06a" }}>
-                {t.promise.label}
-              </p>
-              <h2 className="mt-3 font-display text-4xl md:text-6xl">{t.promise.title}</h2>
-              <p className="mt-5 text-base leading-relaxed text-[#f7f3ec]/b3">
-                {t.promise.text}
-              </p>
+              <p className="section-label" style={{ color: "#d4b06a" }}>{t.why.label}</p>
+              <h2 className="mt-3 font-display text-4xl md:text-6xl">{t.why.title}</h2>
+              <p className="mt-5 text-base leading-relaxed text-[#f7f3ec]/80">{t.why.intro}</p>
 
               <div className="mt-8 space-y-4">
-                {t.promise.cards.map((item) => (
-                  <div
-                    key={item.t}
-                    className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur"
-                  >
+                {t.why.items.map((item) => (
+                  <div key={item.t} className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur">
                     <p className="font-display text-2xl">{item.t}</p>
-                    <p className="mt-2 text-sm leading-relaxed text-[#f7f3ec]/a6">{item.d}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-[#f7f3ec]/70">{item.d}</p>
                   </div>
                 ))}
               </div>
@@ -251,18 +374,10 @@ export default function HomePage() {
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="overflow-hidden rounded-[28px] bg-[#132033]">
-                <img
-                  src="/images/yacht-glamour.jpg"
-                  alt="Superyacht"
-                  className="media-card sm-h-22"
-                />
+                <img src="/images/yacht-glamour.jpg" alt="Superyacht in turquoise waters" className="media-card sm-h-22" />
               </div>
               <div className="overflow-hidden rounded-[28px] bg-[#132033] sm:mt-12">
-                <img
-                  src="/images/car-convertible.jpg"
-                  alt="Supercar"
-                  className="media-card sm-h-22"
-                />
+                <img src="/images/cars-fleet.jpg" alt="Supercar fleet" className="media-card sm-h-22" />
               </div>
             </div>
           </div>
@@ -272,53 +387,76 @@ export default function HomePage() {
         <section id="paquetes" className="soft-grid bg-[#f7f3ec] py-20 md:py-28">
           <div className="container-wide">
             <div className="mx-auto max-w-2xl text-center">
-              <p className="section-label">{t.packs.label}</p>
-              <h2 className="mt-3 font-display text-4xl text-[#0c1520] md:text-6xl">
-                {t.packs.title}
-              </h2>
-              <p className="mt-4 text-[#6d655a]">{t.packs.sub}</p>
+              <p className="section-label">{t.packages.label}</p>
+              <h2 className="mt-3 font-display text-4xl text-[#0c1520] md:text-6xl">{t.packages.title}</h2>
+              <p className="mt-4 text-[#6d655a]">{t.packages.intro}</p>
             </div>
 
+            {/* Standard tiers — 3 columns */}
             <div className="mt-12 grid gap-6 lg:grid-cols-3">
-              {t.packs.items.map((pkg) => (
+              {t.packages.items.slice(0, 3).map((pkg) => (
                 <article
                   key={pkg.name}
                   className={`relative flex h-full flex-col rounded-[28px] border p-7 ${
-                    pkg.popular
-                      ? "border-[#b8924a]/50 bg-white shadow-[0_24px_60px_rgba(184,146,74,0.16)]"
-                      : "border-[#e6dfd2] bg-white/90"
+                    pkg.popular ? "border-[#b8924a]/50 bg-white shadow-[0_24px_60px_rgba(184,146,74,0.16)]" : "border-[#e6dfd2] bg-white/90"
                   }`}
                 >
                   {pkg.popular && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#b8924a] px-4 py-1 text-[10px] font-bold uppercase tracking-widest text-[#0c1520]">
-                      {t.packs.popular}
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#b8924a] px-4 py-1 text-[10px] font-bold uppercase tracking-widest text-[#0c1520]">
+                      {t.packages.badge}
                     </span>
                   )}
-                  <p className="text-[11px] uppercase tracking-[0.18em] text-[#b8924a]">
-                    {pkg.name}
-                  </p>
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-[#b8924a]">{pkg.name}</p>
                   <p className="mt-3 font-display text-4xl text-[#0c1520]">{pkg.price}</p>
-                  <p className="mt-1 text-xs uppercase tracking-wider text-[#6d655a]">
-                    {pkg.period}
-                  </p>
+                  <p className="mt-1 text-xs uppercase tracking-wider text-[#6d655a]">{pkg.period}</p>
                   <p className="mt-5 text-sm leading-relaxed text-[#6d655a]">{pkg.description}</p>
                   <ul className="mt-6 flex-1 space-y-3">
                     {pkg.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-3 text-sm text-[#0c1520]/cc">
+                      <li key={feature} className="flex items-start gap-3 text-sm text-[#0c1520]/80">
                         <span className="mt-0.5 text-[#b8924a]">✓</span>
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <a
-                    href="#reserva"
-                    className={pkg.popular ? "btn-primary mt-8" : "btn-secondary mt-8"}
-                  >
-                    {pkg.cta}
-                  </a>
+                  <a href="#reserva" className={pkg.popular ? "btn-primary mt-8" : "btn-secondary mt-8"}>{pkg.cta}</a>
                 </article>
               ))}
             </div>
+
+            {/* Private Client — full-width aspirational tier */}
+            {t.packages.items[3] && (() => {
+              const pc = t.packages.items[3];
+              return (
+                <article className="relative mt-6 overflow-hidden rounded-[28px] border border-[#d4b06a]/30 bg-[#0c1520] p-8 md:p-10">
+                  {/* subtle gold shimmer stripe */}
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(212,176,106,0.12),transparent_60%)]" />
+                  <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+                    <div>
+                      <p className="text-[10px] uppercase tracking-[0.28em] text-[#d4b06a]">{pc.name}</p>
+                      <p className="mt-3 font-display text-5xl text-[#f7f3ec]">{pc.price}</p>
+                      <p className="mt-1 text-xs uppercase tracking-wider text-[#f7f3ec]/45">{pc.period}</p>
+                      <p className="mt-5 max-w-2xl text-base leading-relaxed text-[#f7f3ec]/70">{pc.description}</p>
+                      <ul className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                        {pc.features.map((feature) => (
+                          <li key={feature} className="flex items-start gap-2.5 text-sm text-[#f7f3ec]/80">
+                            <span className="mt-0.5 shrink-0 text-[#d4b06a]">◆</span>
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="shrink-0 lg:text-right">
+                      <a
+                        href="#reserva"
+                        className="inline-block rounded-full border border-[#d4b06a]/60 bg-[#d4b06a]/10 px-8 py-4 text-xs font-bold uppercase tracking-widest text-[#d4b06a] backdrop-blur transition hover:bg-[#d4b06a]/20"
+                      >
+                        {pc.cta} →
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              );
+            })()}
           </div>
         </section>
 
@@ -326,28 +464,16 @@ export default function HomePage() {
         <section id="proceso" className="bg-[#fcfaf6] py-20 md:py-28">
           <div className="container-wide">
             <p className="section-label">{t.process.label}</p>
-            <h2 className="mt-3 max-w-3xl font-display text-4xl text-[#0c1520] md:text-6xl">
-              {t.process.title}
-            </h2>
+            <h2 className="mt-3 max-w-3xl font-display text-4xl text-[#0c1520] md:text-6xl">{t.process.title}</h2>
 
             <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-              {t.process.steps.map((step) => (
+              {t.process.items.map((step) => (
                 <div key={step.step} className="card-lux h-full p-6">
-                  <p className="font-display text-5xl text-[#b8924a]/66">{step.step}</p>
+                  <p className="font-display text-5xl text-[#b8924a]/40">{step.step}</p>
                   <h3 className="mt-4 font-display text-2xl text-[#0c1520]">{step.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-[#6d655a]">{step.text}</p>
                 </div>
               ))}
-            </div>
-
-            <div className="mt-10 rounded-[28px] border border-[#b8924a]/25 bg-gradient-to-r from-[#b8924a]/10 to-transparent p-6 md:p-8">
-              <p className="section-label">{t.process.feelLabel}</p>
-              <p className="mt-3 font-display text-2xl md:text-3xl" style={{ color: "#0c1520" }}>
-                {t.process.quote}
-              </p>
-              <p className="mt-4 text-sm uppercase tracking-wider text-[#6d655a]">
-                {t.process.author}
-              </p>
             </div>
           </div>
         </section>
@@ -358,39 +484,21 @@ export default function HomePage() {
             <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
               <div>
                 <p className="section-label">{t.gallery.label}</p>
-                <h2 className="mt-3 font-display text-4xl text-[#0c1520] md:text-6xl">
-                  {t.gallery.title}
-                </h2>
+                <h2 className="mt-3 font-display text-4xl text-[#0c1520] md:text-6xl">{t.gallery.title}</h2>
               </div>
-              <p className="max-w-md text-sm leading-relaxed text-[#6d655a]">
-                {t.gallery.sub}
-              </p>
+              <p className="max-w-md text-sm leading-relaxed text-[#6d655a]">{t.gallery.intro}</p>
             </div>
 
-            <div className="mt-12 grid gap-4 md:grid-cols-12">
-              {galleryItems.map((item, index) => {
-                const featured = index === 0 || index === 1;
-                return (
-                  <figure
-                    key={item.src}
-                    className={`group relative overflow-hidden rounded-[24px] bg-[#0c1520] ${
-                      featured ? "md:col-span-6" : "md:col-span-3"
-                    }`}
-                  >
-                    <img
-                      src={item.src}
-                      alt={item.label}
-                      className={featured ? "media-card media-card-tall" : "media-card"}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent opacity-90 transition duration-500 group-hover:opacity-100" />
-                    <figcaption className="absolute inset-x-0 bottom-0 p-5 text-[11px] uppercase tracking-widest text-[#f7f3ec]">
-                      <span className="inline-block rounded-full border border-white/20 bg-black/30 px-3 py-1 backdrop-blur">
-                        {item.label}
-                      </span>
-                    </figcaption>
-                  </figure>
-                );
-              })}
+            <div className="mt-12 grid gap-4 grid-cols-2 lg:grid-cols-4">
+              {t.gallery.labels.map((label, index) => (
+                <figure key={index} className="group relative overflow-hidden rounded-[24px] bg-[#0c1520]">
+                  <img src={galleryImages[index]} alt={galleryAlts[index]} className="media-card media-card-sq transition duration-500 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent opacity-90 transition duration-500 group-hover:opacity-100" />
+                  <figcaption className="absolute inset-x-0 bottom-0 p-5 text-[11px] uppercase tracking-widest text-[#f7f3ec]">
+                    <span className="inline-block rounded-full border border-white/20 bg-black/30 px-3 py-1 backdrop-blur">{label}</span>
+                  </figcaption>
+                </figure>
+              ))}
             </div>
           </div>
         </section>
@@ -398,78 +506,82 @@ export default function HomePage() {
         {/* TESTIMONIALS */}
         <section className="bg-[#fcfaf6] py-20 md:py-28">
           <div className="container-wide">
-            <p className="section-label">{t.testis.label}</p>
-            <h2 className="mt-3 font-display text-4xl text-[#0c1520] md:text-6xl">
-              {t.testis.title}
-            </h2>
+            <ScrollReveal className="text-center max-w-3xl mx-auto mb-12">
+              <p className="section-label">{t.testimonials.label}</p>
+              <h2 className="mt-3 font-display text-4xl text-[#0c1520] md:text-6xl">{t.testimonials.title}</h2>
+            </ScrollReveal>
 
-            <div className="mt-12 grid gap-6 lg:grid-cols-3">
-              {t.testis.items.map((item) => (
-                <blockquote key={item.name} className="card-lux flex h-full flex-col p-7">
-                  <div className="text-[#b8924a]">★★★★★</div>
-                  <p className="mt-5 flex-1 font-display text-2xl leading-snug text-[#0c1520]">
-                    "{item.quote}"
-                  </p>
-                  <footer className="mt-8 border-t border-[#e6dfd2] pt-5">
-                    <p className="text-sm font-semibold text-[#0c1520]">{item.name}</p>
-                    <p className="mt-1 text-[11px] uppercase tracking-wider text-[#6d655a]">
-                      {item.role}
-                    </p>
-                  </footer>
-                </blockquote>
+            <div className="grid gap-6 lg:grid-cols-3">
+              {t.testimonials.items.map((item, idx) => (
+                <ScrollReveal key={item.name} delay={idx as 0 | 1 | 2 | 3 | 4}>
+                  <blockquote className="card-lux flex h-full flex-col p-7">
+                    <div className="text-[#b8924a]">{"★".repeat(item.rating)}</div>
+                    <p className="mt-5 flex-1 font-display text-2xl leading-snug text-[#0c1520]">"{item.quote}"</p>
+                    <footer className="mt-8 border-t border-[#e6dfd2] pt-5">
+                      <p className="text-sm font-semibold text-[#0c1520]">{item.name}</p>
+                      <p className="mt-1 text-[11px] uppercase tracking-wider text-[#6d655a]">{item.role}</p>
+                    </footer>
+                  </blockquote>
+                </ScrollReveal>
               ))}
             </div>
           </div>
         </section>
 
+        {/* CELEBRATIONS SECTION */}
+        <section className="bg-[#fcfaf6] py-20 border-t border-[#e6dfd2]">
+          <div className="container-wide">
+            <ScrollReveal className="text-center max-w-3xl mx-auto mb-12">
+              <p className="section-label">{t.celebrations.label}</p>
+              <h2 className="mt-3 font-display text-4xl text-[#0c1520] md:text-5xl">{t.celebrations.title}</h2>
+              <p className="mt-4 text-[#6d655a] text-sm md:text-base">{t.celebrations.intro}</p>
+            </ScrollReveal>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              {t.celebrations.items.map((item, idx) => (
+                <ScrollReveal key={item.t} delay={idx as 0 | 1 | 2 | 3 | 4} className="card-lux p-6 flex flex-col h-full">
+                  <div className="text-[#b8924a] text-3xl mb-4">
+                    {idx === 0 ? "🎂" : idx === 1 ? "🥂" : "👔"}
+                  </div>
+                  <h3 className="font-display text-2xl text-[#0c1520] mb-3">{item.t}</h3>
+                  <p className="text-sm text-[#6d655a] leading-relaxed flex-1">{item.d}</p>
+                </ScrollReveal>
+              ))}
+            </div>
+
+            <ScrollReveal delay={1} className="text-center mt-12">
+              <a href="#reserva" className="btn-primary">
+                {t.celebrations.cta} →
+              </a>
+            </ScrollReveal>
+          </div>
+        </section>
+
         {/* CTA FORM */}
         <section id="reserva" className="relative overflow-hidden bg-[#0c1520] py-20 text-[#f7f3ec] md:py-28">
-          <img
-            src="/images/hero-villa.jpg"
-            alt=""
-            className="media-fill opacity-35"
-            aria-hidden
-          />
+          <img src="/images/hero-villa.jpg" alt="" className="media-fill opacity-35" aria-hidden />
           <div className="absolute inset-0 bg-[#0c1520]/82" />
 
           <div className="container-wide relative grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:items-start">
             <div>
-              <p className="section-label" style={{ color: "#d4b06a" }}>
-                {t.cta.label}
-              </p>
+              <p className="section-label" style={{ color: "#d4b06a" }}>{t.cta.label}</p>
               <h2 className="mt-3 font-display text-4xl md:text-6xl">{t.cta.title}</h2>
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-[#f7f3ec]/b3">
-                {t.cta.sub}
-              </p>
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-[#f7f3ec]/80">{t.cta.text}</p>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                {t.cta.bullets.map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-2xl border border-white/10 bg-black/30 px-4 py-4 text-sm text-[#f7f3ec]/d9 backdrop-blur"
-                  >
+                {t.cta.points.map((item) => (
+                  <div key={item} className="rounded-2xl border border-white/10 bg-black/30 px-4 py-4 text-sm text-[#f7f3ec]/90 backdrop-blur">
                     <span className="mr-2 text-[#d4b06a]">◆</span>
                     {item}
                   </div>
                 ))}
               </div>
 
-              <div className="mt-8 flex flex-wrap items-center gap-4 text-sm text-[#f7f3ec]/99">
-                <a
-                  href={`https://wa.me/${brand.whatsapp}?text=${encodeURIComponent(t.whatsMsg)}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-[#25D366]/40 bg-[#25D366]/15 px-4 py-2.5 font-semibold text-[#f7f3ec] transition hover:bg-[#25D366]/25"
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#25D366" aria-hidden>
-                    <path d="M20.5 3.5A11.8 11.8 0 0 0 12.05 0C5.5 0 .2 5.3.2 11.85c0 2.1.55 4.1 1.6 5.9L0 24l6.4-1.7a11.8 11.8 0 0 0 5.65 1.45h.05c6.55 0 11.85-5.3 11.85-11.85 0-3.15-1.25-6.15-3.45-8.4Z" />
-                  </svg>
-                  {brand.phone}
+              <div className="mt-8 flex flex-wrap gap-4 text-sm text-[#f7f3ec]/90">
+                <a href={`https://wa.me/${brand.whatsapp}`} target="_blank" rel="noreferrer" className="underline decoration-[#b8924a]/50 underline-offset-4 hover:text-[#d4b06a]">
+                  {t.cta.whatsapp}
                 </a>
-                <a
-                  href={`mailto:${brand.email}`}
-                  className="underline decoration-[#b8924a]/50 underline-offset-4 hover:text-[#d4b06a]"
-                >
+                <a href={`mailto:${brand.email}`} className="underline decoration-[#b8924a]/50 underline-offset-4 hover:text-[#d4b06a]">
                   {brand.email}
                 </a>
               </div>
@@ -478,6 +590,16 @@ export default function HomePage() {
             <div className="rounded-[28px] border border-white/15 bg-white p-6 text-[#0c1520] shadow-2xl md:p-8">
               <h3 className="font-display text-3xl">{t.cta.formTitle}</h3>
               <p className="mt-2 text-sm text-[#6d655a]">{t.cta.formSub}</p>
+
+              <div className="mt-5 grid grid-cols-3 gap-3 border-y border-[#e6dfd2] py-4">
+                {t.guarantee.items.map((g) => (
+                  <div key={g.t} className="text-center">
+                    <div className="mx-auto flex h-8 w-8 items-center justify-center rounded-full bg-[#b8924a]/10 text-[#b8924a]">{g.icon}</div>
+                    <p className="mt-1.5 text-[10px] font-bold uppercase leading-tight tracking-wide" style={{ color: "#0c1520" }}>{g.t}</p>
+                  </div>
+                ))}
+              </div>
+
               <div className="mt-6">
                 <LeadForm />
               </div>
@@ -490,10 +612,8 @@ export default function HomePage() {
           <div className="container-wide grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
               <p className="section-label">{t.faq.label}</p>
-              <h2 className="mt-3 font-display text-4xl text-[#0c1520] md:text-5xl">
-                {t.faq.title}
-              </h2>
-              <p className="mt-4 text-sm leading-relaxed text-[#6d655a]">{t.faq.sub}</p>
+              <h2 className="mt-3 font-display text-4xl text-[#0c1520] md:text-5xl">{t.faq.title}</h2>
+              <p className="mt-4 text-sm leading-relaxed text-[#6d655a]">{t.faq.intro}</p>
             </div>
             <Faq />
           </div>
@@ -501,7 +621,7 @@ export default function HomePage() {
       </main>
       <Footer />
       <WhatsAppFloat />
-      <CookieBanner />
+      <MobileCTA />
     </>
   );
 }

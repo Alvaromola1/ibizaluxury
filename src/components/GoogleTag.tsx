@@ -15,13 +15,6 @@ export function GoogleTag() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('consent', 'default', {
-              ad_storage: 'denied',
-              ad_user_data: 'denied',
-              ad_personalization: 'denied',
-              analytics_storage: 'denied',
-              wait_for_update: 500
-            });
             gtag('config', '${GOOGLE_ADS_ID}');
           `,
         }}
@@ -30,14 +23,23 @@ export function GoogleTag() {
   );
 }
 
-export function grantGoogleConsent() {
+export function triggerGoogleConversion(conversionLabel: string = "") {
   if (typeof window === "undefined" || typeof window.gtag !== "function") return;
-  window.gtag("consent", "update", {
-    ad_storage: "granted",
-    ad_user_data: "granted",
-    ad_personalization: "granted",
-    analytics_storage: "granted",
-  });
+  
+  if (conversionLabel) {
+    // Trigger specific conversion
+    window.gtag("event", "conversion", {
+      send_to: `${GOOGLE_ADS_ID}/${conversionLabel}`,
+      event_callback: () => {
+        console.log(`Google Ads conversion triggered: ${conversionLabel}`);
+      }
+    });
+  } else {
+    // Just initialize conversion tracking
+    window.gtag("event", "page_view", {
+      send_to: GOOGLE_ADS_ID
+    });
+  }
 }
 
 declare global {

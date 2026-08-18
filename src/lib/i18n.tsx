@@ -13,14 +13,14 @@ export type Lang = "es" | "en" | "de" | "fr";
 export const galleryItems = [
   { src: "/images/hero-dramatic.jpg", label: "Cliffside Villa" },
   { src: "/images/yacht-glamour.jpg", label: "Superyacht Charter" },
-  { src: "/images/car-convertible.jpg", label: "Supercar Fleet" },
-  { src: "/images/infinity-pool.jpg", label: "Infinity Living" },
+  { src: "/images/cars-fleet.jpg", label: "Supercar Fleet" },
+  { src: "/images/chill-concept.jpg", label: "Infinity Living" },
   { src: "/images/yacht-sea.jpg", label: "Open Sea" },
-  { src: "/images/night-vip.jpg", label: "Night VIP" },
-  { src: "/images/villa-sunset.jpg", label: "Golden Hour" },
-  { src: "/images/private-jet.jpg", label: "Private Jet" },
-  { src: "/images/beach-club.jpg", label: "Beach Club" },
-  { src: "/images/villa-terrace.jpg", label: "Sunset Terrace" },
+  { src: "/images/vip-night.jpg", label: "Night VIP" },
+  { src: "/images/hero-dramatic.jpg", label: "Golden Hour" },
+  { src: "/images/champagne-yacht.jpg", label: "Private Jet" },
+  { src: "/images/vip-night.jpg", label: "Beach Club" },
+  { src: "/images/chef-villa.jpg", label: "Sunset Terrace" },
 ];
 
 const es = {
@@ -85,7 +85,7 @@ const es = {
         highlights: ["Day & multi-day charters", "Tripulación & catering gourmet", "Calas secretas de Ibiza y Formentera"],
       },
       {
-        image: "/images/car-lambo.jpg",
+        image: "/images/cars-fleet.jpg",
         title: "Flota superdeportiva",
         subtitle: "Lamborghini, Ferrari, Rolls-Royce y más",
         description:
@@ -93,7 +93,7 @@ const es = {
         highlights: ["Supercars & hypercars", "Entrega donde quieras", "Multiday sin fricción"],
       },
       {
-        image: "/images/beach-club.jpg",
+        image: "/images/vip-night.jpg",
         title: "Experiencias VIP",
         subtitle: "Acceso total a la Ibiza que no se ve",
         description:
@@ -420,7 +420,7 @@ const en: typeof es = {
         highlights: ["Day & multi-day charters", "Crew & gourmet catering", "Hidden coves of Ibiza & Formentera"],
       },
       {
-        image: "/images/car-lambo.jpg",
+        image: "/images/cars-fleet.jpg",
         title: "Supercar fleet",
         subtitle: "Lamborghini, Ferrari, Rolls-Royce and more",
         description:
@@ -428,7 +428,7 @@ const en: typeof es = {
         highlights: ["Supercars & hypercars", "Delivery anywhere", "Frictionless multi-day"],
       },
       {
-        image: "/images/beach-club.jpg",
+        image: "/images/vip-night.jpg",
         title: "VIP experiences",
         subtitle: "Full access to the Ibiza you don't see",
         description:
@@ -755,7 +755,7 @@ const de: typeof es = {
         highlights: ["Tages- & Mehrtagescharter", "Crew & Gourmet-Catering", "Geheime Buchten von Ibiza & Formentera"],
       },
       {
-        image: "/images/car-lambo.jpg",
+        image: "/images/cars-fleet.jpg",
         title: "Supersportwagen-Flotte",
         subtitle: "Lamborghini, Ferrari, Rolls-Royce und mehr",
         description:
@@ -763,7 +763,7 @@ const de: typeof es = {
         highlights: ["Supercars & Hypercars", "Lieferung überallhin", "Mehrtägig ohne Aufwand"],
       },
       {
-        image: "/images/beach-club.jpg",
+        image: "/images/vip-night.jpg",
         title: "VIP-Erlebnisse",
         subtitle: "Voller Zugang zum verborgenen Ibiza",
         description:
@@ -1090,7 +1090,7 @@ const fr: typeof es = {
         highlights: ["Charter à la journée & multi-jours", "Équipage & catering gourmet", "Criques secrètes d'Ibiza & Formentera"],
       },
       {
-        image: "/images/car-lambo.jpg",
+        image: "/images/cars-fleet.jpg",
         title: "Flotte supercar",
         subtitle: "Lamborghini, Ferrari, Rolls-Royce et plus",
         description:
@@ -1098,7 +1098,7 @@ const fr: typeof es = {
         highlights: ["Supercars & hypercars", "Livraison où vous voulez", "Multi-jours sans friction"],
       },
       {
-        image: "/images/beach-club.jpg",
+        image: "/images/vip-night.jpg",
         title: "Expériences VIP",
         subtitle: "Accès total à l'Ibiza qu'on ne voit pas",
         description:

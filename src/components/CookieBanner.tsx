@@ -1,6 +1,5 @@
 "use client";
 
-import { grantGoogleConsent } from "@/components/GoogleTag";
 import { useEffect, useState } from "react";
 
 export function CookieBanner() {
@@ -12,12 +11,11 @@ export function CookieBanner() {
       setVisible(true);
       return;
     }
-    if (consent === "accepted") grantGoogleConsent();
+    // Consentimiento gestionado localmente, Google Ads ya está configurado en el layout
   }, []);
 
   function choose(value: "accepted" | "rejected") {
     localStorage.setItem("ild-cookie-consent", value);
-    if (value === "accepted") grantGoogleConsent();
     setVisible(false);
   }
 
