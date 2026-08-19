@@ -114,6 +114,17 @@ export function LeadForm({
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
+    
+    // Prevent duplicate conversion tracking
+    if (typeof window !== "undefined" && window.localStorage) {
+      const conversionKey = "google_ads_conversion_tracked";
+      if (localStorage.getItem(conversionKey)) {
+        // Conversion already tracked, skip
+        router.push("/gracias");
+        return;
+      }
+    }
+    
     setLoading(true);
     setError("");
 
@@ -136,9 +147,13 @@ export function LeadForm({
       if (typeof window !== "undefined" && (window as any).fbq) {
         (window as any).fbq("track", "Lead");
       }
-      // Trigger Google Ads conversion
+      // Trigger Google Ads conversion with specific conversion label
       if (typeof window !== "undefined" && window.gtag) {
-        triggerGoogleConversion();
+        triggerGoogleConversion("sVf7CKCGruMcEKubyMNE");
+        // Mark conversion as tracked to prevent duplicates
+        if (window.localStorage) {
+          localStorage.setItem("google_ads_conversion_tracked", "true");
+        }
       }
       router.push("/gracias");
     } catch (err) {
