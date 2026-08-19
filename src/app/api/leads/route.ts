@@ -49,7 +49,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const [lead] = await db
+    const result = await db
       .insert(leads)
       .values({
         name,
@@ -68,6 +68,8 @@ export async function POST(request: Request) {
         contacted: false,
       })
       .returning({ id: leads.id });
+
+    const lead = result[0];
 
     // Fire-and-forget emails (never block the response if they fail)
     const emailData = {
