@@ -3,6 +3,7 @@ import { desc } from "drizzle-orm";
 import { db } from "@/db";
 import { leads } from "@/db/schema";
 import { notifyConcierge, sendClientConfirmation } from "@/lib/email";
+import { Pool } from "pg";
 
 export const dynamic = "force-dynamic";
 
@@ -49,54 +50,72 @@ export async function POST(request: Request) {
       );
     }
 
-    const result = await db
-      .insert(leads)
-      .values({
+    const databaseUrl = process.env.DATABASE_URL;
+    if (!databaseUrl) {
+      return NextResponse.json(
+        { error: "Database configuration missing." },
+        { status: 500 }
+      );
+    }
+
+    const pool = new Pool({ connectionString: databaseUrl });
+    
+    try {
+      const result = await pool.query(
+        `INSERT INTO leads (
+          name, email, phone, service, guests, dates, budget, message, 
+          source, utm_source, utm_medium, utm_campaign, language, contacted
+        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
+        RETURNING id`,
+        [
+          name,
+          email,
+          phone,
+          service,
+          guests,
+          dates,
+          budget,
+          message,
+          source,
+          utmSource,
+          utmMedium,
+          utmCampaign,
+          language,
+          false
+        ]
+      );
+
+      const leadId = result.rows[0].id;
+
+      // Fire-and-forget emails (never block the response if they fail)
+      const emailData = {
         name,
         email,
-        phone: phone || undefined,
+        phone,
         service,
-        guests: guests || undefined,
-        dates: dates || undefined,
-        budget: budget || undefined,
-        message: message || undefined,
-        source,
-        utmSource: utmSource || undefined,
-        utmMedium: utmMedium || undefined,
-        utmCampaign: utmCampaign || undefined,
+        guests,
+        dates,
+        budget,
+        message,
         language,
-        contacted: false,
-      })
-      .returning({ id: leads.id });
+        source,
+        utmSource,
+        utmMedium,
+        utmCampaign,
+      };
+      Promise.allSettled([
+        notifyConcierge(emailData),
+        sendClientConfirmation(emailData),
+      ]).catch(() => {});
 
-    const lead = result[0];
-
-    // Fire-and-forget emails (never block the response if they fail)
-    const emailData = {
-      name,
-      email,
-      phone,
-      service,
-      guests,
-      dates,
-      budget,
-      message,
-      language,
-      source,
-      utmSource,
-      utmMedium,
-      utmCampaign,
-    };
-    Promise.allSettled([
-      notifyConcierge(emailData),
-      sendClientConfirmation(emailData),
-    ]).catch(() => {});
-
-    return NextResponse.json({
-      success: true,
-      id: lead.id,
-      message: "Solicitud recibida. Te respondemos de inmediato.",
-    });
+      return NextResponse.json({
+        success: true,
+        id: leadId,
+        message: "Solicitud recibida. Te respondemos de inmediato.",
+      });
+    } finally {
+      await pool.end();
+    }
   } catch (error) {
     console.error("Lead creation failed", error);
     // Try to extract more error details for debugging

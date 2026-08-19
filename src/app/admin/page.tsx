@@ -23,7 +23,7 @@ export default async function AdminPage() {
 
   const total = rows.length;
   const last24h = rows.filter(
-    (lead) => Date.now() - new Date(lead.createdAt).getTime() < 24 * 60 * 60 * 1000
+    (lead) => lead.createdAt && Date.now() - new Date(lead.createdAt).getTime() < 24 * 60 * 60 * 1000
   ).length;
   const highTicket = rows.filter((lead) =>
     ["60k-120k", "120k+", "Signature Week", "Ultra Private"].some(
@@ -85,7 +85,7 @@ export default async function AdminPage() {
                   {rows.map((lead) => (
                     <tr key={lead.id} className="align-top" style={{ borderTop: "1px solid #e6dfd2" }}>
                       <td className="whitespace-nowrap px-4 py-4" style={{ color: "#6d655a" }}>
-                        {formatDate(new Date(lead.createdAt))}
+                        {lead.createdAt && formatDate(new Date(lead.createdAt))}
                         <div className="mt-1 text-[10px] uppercase tracking-[0.12em]">{lead.source}</div>
                       </td>
                       <td className="px-4 py-4">
