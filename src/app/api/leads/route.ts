@@ -65,6 +65,7 @@ export async function POST(request: Request) {
         utmMedium: utmMedium || undefined,
         utmCampaign: utmCampaign || undefined,
         language,
+        contacted: false,
       })
       .returning({ id: leads.id });
 
