@@ -115,16 +115,6 @@ export function LeadForm({
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     
-    // Prevent duplicate conversion tracking
-    if (typeof window !== "undefined" && window.localStorage) {
-      const conversionKey = "google_ads_conversion_tracked";
-      if (localStorage.getItem(conversionKey)) {
-        // Conversion already tracked, skip
-        router.push("/gracias");
-        return;
-      }
-    }
-    
     setLoading(true);
     setError("");
 
