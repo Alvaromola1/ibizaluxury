@@ -135,7 +135,7 @@ const confirmations: Record<string, { subject: string; body: string }> = {
         </td></tr>
       </table>
       <p style="margin:24px 0 0;color:#6d655a;font-family:Arial,sans-serif;font-size:14px;">¿Quieres ir más rápido? Escríbenos por WhatsApp:</p>
-      <p style="margin:8px 0 0;"><a href="https://wa.me/34691785960" style="display:inline-block;background:#25D366;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;">WhatsApp Concierge</a></p>`,
+      <p style="margin:8px 0 0;"><a href="/api/track/whatsapp?redirect=https%3A%2F%2Fwa.me%2F34691785960" style="display:inline-block;background:#25D366;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;">WhatsApp Concierge</a></p>`,
   },
   en: {
     subject: "Received · Your proposal is on its way",
@@ -149,7 +149,7 @@ const confirmations: Record<string, { subject: string; body: string }> = {
         </td></tr>
       </table>
       <p style="margin:24px 0 0;color:#6d655a;font-family:Arial,sans-serif;font-size:14px;">Want to move faster? Message us on WhatsApp:</p>
-      <p style="margin:8px 0 0;"><a href="https://wa.me/34691785960" style="display:inline-block;background:#25D366;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;">WhatsApp Concierge</a></p>`,
+      <p style="margin:8px 0 0;"><a href="/api/track/whatsapp?redirect=https%3A%2F%2Fwa.me%2F34691785960" style="display:inline-block;background:#25D366;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;">WhatsApp Concierge</a></p>`,
   },
   de: {
     subject: "Erhalten · Ihr Angebot ist unterwegs",
@@ -163,7 +163,7 @@ const confirmations: Record<string, { subject: string; body: string }> = {
         </td></tr>
       </table>
       <p style="margin:24px 0 0;color:#6d655a;font-family:Arial,sans-serif;font-size:14px;">Schneller gehen? Schreiben Sie uns auf WhatsApp:</p>
-      <p style="margin:8px 0 0;"><a href="https://wa.me/34691785960" style="display:inline-block;background:#25D366;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;">WhatsApp Concierge</a></p>`,
+      <p style="margin:8px 0 0;"><a href="/api/track/whatsapp?redirect=https%3A%2F%2Fwa.me%2F34691785960" style="display:inline-block;background:#25D366;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;">WhatsApp Concierge</a></p>`,
   },
   fr: {
     subject: "Reçu · Votre offre est en route",
@@ -177,7 +177,7 @@ const confirmations: Record<string, { subject: string; body: string }> = {
         </td></tr>
       </table>
       <p style="margin:24px 0 0;color:#6d655a;font-family:Arial,sans-serif;font-size:14px;">Aller plus vite ? Écrivez-nous sur WhatsApp :</p>
-      <p style="margin:8px 0 0;"><a href="https://wa.me/34691785960" style="display:inline-block;background:#25D366;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;">WhatsApp Concierge</a></p>`,
+      <p style="margin:8px 0 0;"><a href="/api/track/whatsapp?redirect=https%3A%2F%2Fwa.me%2F34691785960" style="display:inline-block;background:#25D366;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;">WhatsApp Concierge</a></p>`,
   },
 };
 
