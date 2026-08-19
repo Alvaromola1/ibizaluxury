@@ -22,10 +22,9 @@ export const leads = pgTable("leads", {
   utmMedium: varchar("utm_medium", { length: 120 }),
   utmCampaign: varchar("utm_campaign", { length: 160 }),
   language: varchar("language", { length: 10 }).default("es"),
-  contacted: boolean("contacted").default(false).notNull(),
+  contacted: boolean("contacted").default(false),
   createdAt: timestamp("created_at", { withTimezone: true })
-    .defaultNow()
-    .notNull(),
+    .defaultNow(),
 });
 
 export type Lead = typeof leads.$inferSelect;
