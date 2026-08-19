@@ -96,8 +96,10 @@ export async function POST(request: Request) {
     });
   } catch (error) {
     console.error("Lead creation failed", error);
+    // Try to extract more error details for debugging
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { error: "No pudimos procesar tu solicitud. Inténtalo de nuevo." },
+      { error: `Error: ${errorMessage}` },
       { status: 500 }
     );
   }
