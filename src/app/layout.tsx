@@ -75,7 +75,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* Google Ads Global Tag - required for Google Ads verification */}
         <Script
           id="google-tag-manager"
-          src="https://www.googletagmanager.com/gtag/js?id=AW-18395303339"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18395303339-TEST"
           strategy="beforeInteractive"
           async
         />
@@ -86,7 +86,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'AW-18395303339');
+              gtag('config', 'AW-18395303339-TEST');
             `,
           }}
           strategy="beforeInteractive"
