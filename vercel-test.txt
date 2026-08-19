@@ -1,4 +1,0 @@
-TEST: Google Ads verification file
-Timestamp: 2026-08-18 23:00:00
-Commit: cc0d3eb
-This file is used to verify that Vercel is deploying the latest changes.
