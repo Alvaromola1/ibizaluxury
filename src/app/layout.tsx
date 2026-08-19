@@ -73,8 +73,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>
         <GoogleTag />
         {/* Google Ads Global Tag - required for Google Ads verification */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18395303339" />
-        <script
+        <Script
+          id="google-tag-manager"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18395303339"
+          strategy="beforeInteractive"
+          async
+        />
+        <Script
+          id="google-gtag-init"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -83,6 +89,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               gtag('config', 'AW-18395303339');
             `,
           }}
+          strategy="beforeInteractive"
         />
       </head>
       <body className={`${body.className} antialiased`} style={{ background: "#fcfaf6", color: "#0c1520" }}>
