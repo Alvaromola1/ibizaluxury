@@ -87,7 +87,7 @@ export async function POST(request: Request) {
 
       const leadId = result.rows[0].id;
 
-      // Fire-and-forget emails (never block the response if they fail)
+      // Send emails synchronously to verify they work
       const emailData = {
         name,
         email,
@@ -104,13 +104,20 @@ export async function POST(request: Request) {
         utmCampaign,
       };
       
-      // Log email data for debugging
-      console.log("[leads] Sending emails to:", emailData.email);
-      
-      Promise.allSettled([
-        notifyConcierge(emailData).then(() => console.log("[leads] notifyConcierge sent to:", process.env.LEAD_NOTIFY_EMAIL)),
-        sendClientConfirmation(emailData).then(() => console.log("[leads] sendClientConfirmation sent to:", emailData.email)),
-      ]).catch((e) => console.error("[leads] Email error:", e));
+      try {
+        await notifyConcierge(emailData);
+        await sendClientConfirmation(emailData);
+      } catch (emailError) {
+        return NextResponse.json(
+          { 
+            success: true,
+            id: leadId,
+            emailError: (emailError as Error).message,
+            message: "Solicitud recibida. Te respondemos de inmediato. (Email error: " + (emailError as Error).message + ")"
+          },
+          { status: 200 }
+        );
+      }
 
       return NextResponse.json({
         success: true,
