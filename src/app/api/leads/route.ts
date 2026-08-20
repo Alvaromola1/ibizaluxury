@@ -104,9 +104,9 @@ export async function POST(request: Request) {
         utmCampaign,
       };
       Promise.allSettled([
-        notifyConcierge(emailData),
-        sendClientConfirmation(emailData),
-      ]).catch(() => {});
+        notifyConcierge(emailData).catch((e) => console.error("notifyConcierge error:", e)),
+        sendClientConfirmation(emailData).catch((e) => console.error("sendClientConfirmation error:", e)),
+      ]);
 
       return NextResponse.json({
         success: true,
