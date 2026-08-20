@@ -22,6 +22,14 @@ function getSmtpConfig(): SmtpConfig | null {
   const port = process.env.SMTP_PORT;
   const user = process.env.SMTP_USER;
   const pass = process.env.SMTP_PASS;
+  
+  console.log("[email] SMTP config check:", {
+    host: !!host,
+    port: !!port,
+    user: user ? "configured" : "missing",
+    pass: pass ? "configured" : "missing"
+  });
+  
   if (!host || !port || !user || !pass) return null;
   return { host, port: Number(port), user, pass };
 }
