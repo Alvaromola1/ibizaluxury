@@ -115,7 +115,7 @@ export async function notifyConcierge(data: LeadEmailData): Promise<void> {
     <p style="margin:24px 0 0;"><a href="https://ibizaluxurydreams.com/admin" style="display:inline-block;background:${GOLD};color:${INK};padding:12px 24px;border-radius:999px;text-decoration:none;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;letter-spacing:1px;">VER EN EL PANEL</a></p>`;
 
   await transporter.sendMail({
-    from: `"Ibiza Luxury Dreams" <${process.env.EMAIL_FROM || "noreply@resend.email"}>`,
+    from: `"Ibiza Luxury Dreams" <${process.env.EMAIL_FROM || "info@ibizaluxurydreams.com"}>`,
     to,
     subject: `🥂 Nueva solicitud: ${data.name} — ${data.service}`,
     html: shell(inner),
@@ -192,7 +192,7 @@ export async function sendClientConfirmation(data: LeadEmailData): Promise<void>
   const inner = tmpl.body.replace("{name}", data.name.split(" ")[0] || data.name);
 
   await transporter.sendMail({
-    from: `"Ibiza Luxury Dreams" <${process.env.EMAIL_FROM || "noreply@resend.email"}>`,
+    from: `"Ibiza Luxury Dreams" <${process.env.EMAIL_FROM || "info@ibizaluxurydreams.com"}>`,
     to: data.email,
     subject: tmpl.subject,
     html: shell(inner),
