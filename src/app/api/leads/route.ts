@@ -103,10 +103,14 @@ export async function POST(request: Request) {
         utmMedium,
         utmCampaign,
       };
+      
+      // Log email data for debugging
+      console.log("[leads] Sending emails to:", emailData.email);
+      
       Promise.allSettled([
-        notifyConcierge(emailData).catch((e) => console.error("notifyConcierge error:", e)),
-        sendClientConfirmation(emailData).catch((e) => console.error("sendClientConfirmation error:", e)),
-      ]);
+        notifyConcierge(emailData).then(() => console.log("[leads] notifyConcierge sent to:", process.env.LEAD_NOTIFY_EMAIL)),
+        sendClientConfirmation(emailData).then(() => console.log("[leads] sendClientConfirmation sent to:", emailData.email)),
+      ]).catch((e) => console.error("[leads] Email error:", e));
 
       return NextResponse.json({
         success: true,
