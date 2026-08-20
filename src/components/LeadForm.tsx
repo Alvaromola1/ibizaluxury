@@ -137,28 +137,33 @@ export function LeadForm({
       if (typeof window !== "undefined" && (window as any).fbq) {
         (window as any).fbq("track", "Lead");
       }
-      // Trigger Google Ads conversion with specific conversion label
+      // Trigger Google Ads conversion with specific conversion label using dataLayer
       const triggerConversion = () => {
-        if (typeof window !== "undefined" && window.gtag) {
-          window.gtag("event", "conversion", {
-            send_to: `AW-18395303339/sVf7CKCGruMcEKubyMNE`,
-            event_callback: () => {
-              console.log("Google Ads conversion triggered successfully");
+        if (typeof window !== "undefined") {
+          // Use dataLayer push which is the most reliable method
+          if (window.dataLayer) {
+            window.dataLayer.push({
+              event: "conversion",
+              send_to: "AW-18395303339/sVf7CKCGruMcEKubyMNE",
+              event_callback: () => {
+                console.log("Google Ads conversion triggered successfully");
+              }
+            });
+            // Mark conversion as tracked to prevent duplicates
+            if (window.localStorage) {
+              localStorage.setItem("google_ads_conversion_tracked", "true");
             }
-          });
-          // Mark conversion as tracked to prevent duplicates
-          if (window.localStorage) {
-            localStorage.setItem("google_ads_conversion_tracked", "true");
+          } else {
+            console.warn("window.dataLayer not available yet");
           }
-        } else {
-          console.warn("window.gtag not available yet");
         }
       };
       
-      // Try to trigger conversion immediately, if not available try again in 500ms
+      // Try to trigger conversion immediately, if not available try again in 500ms and 1500ms
       triggerConversion();
       setTimeout(triggerConversion, 500);
       setTimeout(triggerConversion, 1500);
+      setTimeout(triggerConversion, 3000);
       router.push("/gracias");
     } catch (err) {
       setError(err instanceof Error ? err.message : t.form.errorGeneric);
