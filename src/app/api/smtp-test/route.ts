@@ -7,6 +7,7 @@ export async function GET() {
     const smtpUser = process.env.SMTP_USER ? "configured" : "missing";
     const smtpPass = process.env.SMTP_PASS ? "configured" : "missing";
     const leadNotifyEmail = process.env.LEAD_NOTIFY_EMAIL;
+    const emailFrom = process.env.EMAIL_FROM;
 
     return NextResponse.json({
       smtpHost,
@@ -14,6 +15,7 @@ export async function GET() {
       smtpUser,
       smtpPass,
       leadNotifyEmail,
+      emailFrom,
     });
   } catch (error) {
     return NextResponse.json(
