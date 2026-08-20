@@ -23,15 +23,6 @@ function getSmtpConfig(): SmtpConfig | null {
   const user = process.env.SMTP_USER;
   const pass = process.env.SMTP_PASS;
   
-  console.log("[email] All env vars:", {
-    SMTP_HOST: !!process.env.SMTP_HOST,
-    SMTP_PORT: !!process.env.SMTP_PORT,
-    SMTP_USER: process.env.SMTP_USER ? process.env.SMTP_USER.substring(0, 4) + "****" : "missing",
-    SMTP_PASS: process.env.SMTP_PASS ? "configured" : "missing",
-    SMTP_PASS_LENGTH: process.env.SMTP_PASS ? process.env.SMTP_PASS.length : 0,
-    SMTP_PASS_START: process.env.SMTP_PASS ? process.env.SMTP_PASS.substring(0, 3) : "none"
-  });
-  
   if (!host || !port || !user || !pass) return null;
   return { host, port: Number(port), user, pass };
 }
@@ -99,8 +90,7 @@ function row(label: string, value?: string | null) {
 export async function notifyConcierge(data: LeadEmailData): Promise<void> {
   const transporter = getTransporter();
   if (!transporter) {
-    console.log("[email] SMTP not configured — skipping concierge notification");
-    return;
+    throw new Error("SMTP not configured - cannot send concierge notification");
   }
   const to = process.env.LEAD_NOTIFY_EMAIL || "info@ibizaluxurydreams.com";
 
